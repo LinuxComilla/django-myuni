@@ -1,0 +1,33 @@
+{% extends "base.backend.html" %}
+{% block title %}Register - {{block.super}}{% endblock title %}
+{% block template %}{{block.super}} register{% endblock template %}
+
+{% block content-inner %}
+
+					<div class="container">
+						<div class="header">
+							<h2>Register</h2>
+						</div>
+						<form class="register" method="post">
+						{% if form_error %}
+							<div class="error">
+								{{ form_error }}
+							</div>
+						{% endif %}
+							<div class="inner">
+							{% for field in form %}
+								<div class="fieldWrapper inline">
+									{{ field.errors }}
+									{{ field.label_tag }}
+									{{ field }}
+								</div>
+							{% endfor %}
+							</div>
+							<div class="submitOptions">
+								<input type="submit" value="Register" />
+								or <a href="/" class="cancel">Cancel and go back</a>
+							</div>
+						</form>
+					</div>
+
+{% endblock content-inner %}

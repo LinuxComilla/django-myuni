@@ -1,0 +1,306 @@
+{% extends "base.html" %}
+{% block template %}person{% endblock template %}
+
+{% block title %}{% if person.title %}{{person.title}} {% endif %}{{person.first_name}} {% if person.initial %} {{person.initial}}. {% endif %}{{person.last_name}} ({{person.username}}) - {{block.super}}{% endblock title %}
+
+{% block site-messages %}
+	<div class="global-message">
+		<div class="inner">
+			<p>This page should have the URL: <a href="/person/{{person.username}}/">/person/{{person.username}}/</a></p>
+			<p>Expecting the following variables:</p>
+			<ul>
+				<li>person = <strong>{{person}}</strong></li>
+				<li>person.groups = <strong>{{person.groups}}</strong>
+					<ul>
+						{% for group in person.groups.all %}
+							<li><strong>{{group.name}}</strong></li>
+						{% endfor %}
+					</ul>
+				</li>
+				<li>person.modules_lectured = <strong>{{person.modules_lectured}}</strong>
+					<ul>
+						{% for module in person.modules_lectured.all %}
+							<li><strong>{{module}}</strong></li>
+						{% endfor %}
+					</ul>
+				</li>
+				<li>person.get_students = <strong>{{person.get_students}}</strong>
+					<ul>
+						{% for person in person.get_students.all %}
+							<li><strong>{{person}}</strong></li>
+						{% endfor %}
+					</ul>
+				</li>
+				<li>person.supervisees = <strong>{{person.supervisees}}</strong>
+					<ul>
+						{% for person in person.supervisees.all %}
+							<li><strong>{{person}}</strong></li>
+						{% endfor %}
+					</ul>
+				</li>
+				<li>person.email = <strong>{{person.email}}</strong></li>
+				<li>person.get_profile.additional_email_addresses = <strong>{{person.get_profile.additional_email_addresses}}</strong>
+					<ul>
+						{% for email in person.get_profile.additional_email_addresses.all %}
+							<li><strong>{{email}}</strong></li>
+						{% endfor %}
+					</ul>
+				</li>
+				<li>person.get_profile.phone = <strong>{{person.get_profile.phone}}</strong></li>
+				<li>person.get_profile.fax = <strong>{{person.get_profile.fax}}</strong></li>
+				<li>person.get_profile.gender = <strong>{{person.get_profile.gender}}</strong></li>
+				<li>person.get_profile.address1 = <strong>{{person.get_profile.address1}}</strong></li>
+				<li>person.get_profile.address2 = <strong>{{person.get_profile.address2}}</strong></li>
+				<li>person.get_profile.post_code = <strong>{{person.get_profile.post_code}}</strong></li>
+				<li>person.get_profile.personal_info = <strong>{{person.get_profile.personal_info}}</strong></li>
+				<li>person.get_profile.research_info = <strong>{{person.get_profile.research_info}}</strong></li>
+				
+			</ul>
+		</div>
+	</div>
+{% endblock site-messages %}
+
+{% block header-inner %}
+					<h1 class="name">{% if person.title %}{{person.title}} {% endif %}{{person.first_name}} {% if person.initial %} {{person.initial}}. {% endif %}{{person.last_name}} <small>({{person.username}})</small></h1>
+					<h2>{% if person.roles.all %}{{person.roles.heaviest.name}}{% else %}Unspecified{% endif %} <small>School of Computer Science</small></h2>
+{% endblock header-inner %}
+
+{% block content-inner %}
+					
+					<div class="secondary">
+						{% block content-secondary %}
+
+						<div class="module">
+							<div class="inner">
+							<div class="image" style="background:url(/media/myuni/people/{{person.username}}/100px.gif) no-repeat 50% 50%;">
+							<!-- <div class="image" style="background:url(http://cs.nott.ac.uk/~gmh/hutton.jpg) no-repeat 50% 0px"> -->
+								<!-- <img src="/media/people/{{person.username}}/100px.gif"/> -->
+							</div>
+							
+							<ul class="navigation">
+								<li class="mail"><a href="mailto:{{person.username}}@cs.nott.ac.uk">Email</a></li>
+								<li class="site{% if person.get_profile.phone or person.get_profile.fax or person.get_profile.address1 or person.get_profile.address2 or person.get_profile.post_code %}{% else %} last{% endif %}"><a href="http://cs.nott.ac.uk/~{{person.username}}/">Personal Site</a></li>
+								{% if person.get_profile.phone %}<li class="disabled phone">{{person.get_profile.phone}}</li>{% endif %}
+								{% if person.get_profile.fax %}<li class="disabled fax">{{person.get_profile.fax}}</li>{% endif %}
+								{% if person.get_profile.address1 or person.get_profile.address2 or person.get_profile.post_code %}
+								<li class="disabled address">
+									{{person.get_profile.address1}}<br/>
+									{{person.get_profile.address2}}<br/>
+									{{person.get_profile.post_code}}
+								</li>
+								{% endif %}
+							</ul>
+							
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+						
+						{% if person.course_taken %}
+						<div class="module">
+							<div class="inner">
+								<ul class="navigation">
+									<li class="first last"><a href="{{person.course_taken.get_absolute_url}}">{{person.course_taken}} - {{person.course_taken.name}}</a></li>
+									</li>
+								</ul>
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+						{% endif %}
+						
+						{% if person.is_staff %}
+						<div class="module">
+							<div class="inner">
+								<div class="error">
+									<p>This person is a site admin.</p>
+								</div>
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+						{% endif %}
+
+						<div class="module">
+							<div class="inner">
+
+							<ul class="navigation">
+								<li class="this first"><a href="/people/{{person.username}}/">Overview</a></li>
+								<li class="last"><a href="{{person.get_absolute_url}}research/">Research</a></li>
+							
+							<!--	{% if person.activites %}
+									<li><a href="/people/{{person.username}}/activites/">Activities</a></li>
+									{% else %}
+									<li class="disabled">Activities</li>
+								{% endif %}
+								{% if person.awards %}
+									<li><a href="/people/{{person.username}}/awards/">Awards</a></li>
+									{% else %}
+									<li class="disabled">Awards</li>
+								{% endif %}
+								{% if person.personal %}
+									<li><a href="/people/{{person.username}}/personal/">Personal</a></li>
+									{% else %}
+									<li class="disabled">Personal</li>
+								{% endif %}
+								{% if person.projects %}
+									<li><a href="/people/{{person.username}}/projects/">Projects</a></li>
+									{% else %}
+									<li class="disabled">Projects</li>
+								{% endif %}
+								{% if person.publications %}
+									<li><a href="/people/{{person.username}}/publications/">Publications</a></li>
+									{% else %}
+									<li class="disabled">Publications</li>
+								{% endif %}
+								{% if person.research %}
+									<li><a href="/people/{{person.username}}/research/">Research</a></li>
+									{% else %}
+									<li class="disabled">Research</li>
+								{% endif %}
+								{% if person.students %}
+									<li><a href="/people/{{person.username}}/students/">Students</a></li>
+									{% else %}
+									<li class="disabled">Students</li>
+								{% endif %}
+								<li><a href="/people/{{person.username}}/supervision/">Supervision</a></li>
+								<li class="last"><a href="/people/{{person.username}}/teaching/">Teaching</a></li>
+								-->
+							</ul>
+
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+
+						{% endblock content-secondary %}
+					</div><!-- /.secondary -->
+
+					<div class="primary">
+						{% block content-primary %}
+						
+						{% if person.get_profile.personal_info %}
+							<h3><span>Personal Info</span></h3>
+							<p>{{person.get_profile.personal_info|safe}}</p>
+						{% endif %}
+						
+						{% if person.get_profile.research_info %}
+							<h3><span>Research</span></h3>
+							<p>{{person.get_profile.research_info}}</p>
+						{% endif %}
+						
+						<h3><span>Modules</span></h3>
+						{% if person.modules_lectured %}
+							<ul>
+							{% for module in person.modules_lectured.all %}
+								<li>
+								{% ifequal module.year current_year %}
+									<strong>Currently teaching</strong>: <a href="{{module.get_absolute_url}}">{{module.code}}: {{module.title}} ({% if module.semester %}{{module.semester.name_short}}{% else %}Full-Year{% endif %}, {{module.year.reference}})</a>
+								{% else %}
+									Previously taught:  <a href="{{module.get_absolute_url}}">{{module.code}}: {{module.title}} ({% if module.semester %}{{module.semester.name_short}}{% else %}Full-Year{% endif %}, {{module.year.reference}})</a>
+								{% endifequal %}
+								</li>
+							{% endfor %}
+							</ul>
+						{% else %}
+						<p>This person does not lecture any modules.</p>
+						{% endif %}
+						
+						<h3><span>Massive List still to implement</span></h3>
+						<ul>
+							<li><strike>Name</strike></li>
+							<li><strike>Intro blurb</strike></li>
+							<li>Group (e.g. Functional Research Group)
+								<ul>
+									<li>Project</li>
+								</ul>
+							</li>
+							<li><strike>Address</strike>
+								<ul>
+									<li>Room Number</li>
+								</ul>
+							</li>
+							<li><strike>Personal (giant blurb)</strike></li>
+							<li>Research Interests (in tag form)</li>
+							<li><strike>Research Interests (giant blurb)</strike></li>
+							<li>Projects
+								<ul>
+									<li>Current</li>
+									<li>Previous</li>
+								</ul>
+							</li>
+							<li>Students
+								<ul>
+									<li>Current</li>
+									<li>Previous</li>
+								</ul>
+							</li>
+							<li>Teaching
+								<ul>
+									<li>Current</li>
+									<li>Previous</li>
+								</ul>
+							</li>
+							<li>Publications
+								<ul>
+									<li>Papers</li>
+									<li>Technical Reports</li>
+									<li>Talks</li>
+									<li>Thesis</li>
+								</ul>
+							</li>
+							<li>Professional Activities</li>
+							<li>Events</li>
+							<li>Hit Counter</li>
+							<li>Last Updated</li>
+							<li>Software</li>
+						</ul>
+						<p>Bonus Features</p>
+						<ul>
+							<li>last.fm</li>
+							<li>Facebook</li>
+							<li>Twitter!</li>
+						</ul>
+						
+						{% endblock content-primary %}
+					</div><!-- /.primary -->
+					
+					<hr class="clear"/>
+
+{% endblock content-inner %}
+
+
+
+{% block debug %}
+
+	<div class="contact-details">
+		{% if person.phone and not person.location.room_number %}
+		<span class="phone">{{person.phone}}</span>
+		{% else %}
+		<span class="room">{% if person.location.room_number %}<small>School of Computer Science</small>, <strong>{{ person.location.room_number }}</strong>{% else %}<small>Unspecified</small>{% endif %}</span>
+		{% endif %}
+	</div>
+
+	{{person.role_description}}
+
+	{% if person.modules_lectured.all %}
+		<h3><span>Modules Lectured</span></h3>
+		{% for module in person.modules_lectured.all %}
+		{% ifchanged %}<h4>{{module.year}}</h4>{% endifchanged %}
+		<h3><a href="/{{module.module.code}}/">{{module.module.code}}: {{module.module.name}}</a></h3>
+		{% endfor %}
+	{% endif %}
+
+	{% if person.modules_convened.all %}
+		<h3><span>Modules Convened</span></h3>
+		{% for module in person.modules_convened.all %}
+		{% ifchanged %}<h4>{{module.year}}</h4>{% endifchanged %}
+		<h3><a href="/{{module.module.code}}/">{{module.module.code}}: {{module.module.name}}</a></h3>
+		{% endfor %}
+	{% endif %}
+
+	<ul class="navigation-list">
+		<li><a href="/{{person.username}}/" class="this">Overview</a></li>
+		<li><a href="/{{person.username}}/activites/">Activities</a></li>
+		<li><a href="/{{person.username}}/awards/">Awards</a></li>
+		<li><a href="/{{person.username}}/personal/">Personal</a></li>
+		<li><a href="/{{person.username}}/projects/">Projects</a></li>
+		<li><a href="/{{person.username}}/publications/">Publications</a></li>
+		<li><a href="/{{person.username}}/research/">Research</a></li>
+		<li><a href="/{{person.username}}/supervision/">Supervision</a></li>
+		<li><a href="/{{person.username}}/teaching/">Teaching</a></li>
+	</ul>
+
+{% endblock debug %}

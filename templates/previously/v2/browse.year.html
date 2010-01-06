@@ -1,0 +1,18 @@
+{% extends "myuni/browse.html" %}
+{% block title %}{{year}} - {{block.super}}{% endblock title %}
+
+{% block site-messages %}
+	<div class="global-error">
+		<div class="inner">
+			<p>This page should have the URL: <strong>/(year)/</strong></p>
+			<p>Expecting the following variables:</p>
+			<ul>
+				<li><pre>year</pre> = "2008-2009"</li>
+			</ul>
+		</div>
+	</div>
+{% endblock site-messages %}
+
+{% block contents-inner %}
+				<h2>Browse {{year}}</h2>
+{% endblock contents-inner %}

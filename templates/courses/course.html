@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block template %}course{% endblock template %}
+
+{% block title %}{{course.name}} - {{block.super}}{% endblock title %}
+
+{% block header-inner %}
+					<h1>
+						<span class="code">{{course.code}}</span>
+						<span class="name">{{course.name}}</span>
+					</h1>
+{% endblock header-inner %}
+
+{% block content-inner %}
+{% endblock content-inner %}
+
+{% block shorturl %}<p>The short-URL for this course is <a href="/go/{{course.id}}/">/go/{{course.id}}/</a></p>{% endblock shorturl %}

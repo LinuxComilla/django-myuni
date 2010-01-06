@@ -1,0 +1,27 @@
+{% extends "myuni/module.html" %}
+
+{% block contents-inner %}
+
+					<h3><strong>Lectures</strong></h3>
+
+					{% if module.lectures.all %}
+					
+					<div class="content-module contains-lectures">
+						{% for lecture in module.lectures.all %}
+						<div class="lecture-item">
+							<a href="/{{module.code}}/lectures/{{lecture.id}}/"><strong>Lecture #{{lecture.id}} - {{lecture.title}}</strong></a> <small>{{lecture.date_happened}}</small>
+							{% if lecture.description %}<p class="description">{{lecture.description}}</p>{% endif %}
+						</div>
+						{% endfor %}
+					</div>
+					
+					{% else %}
+					
+					<div class="error">
+						<p>There are no lectures currently available for this module.</p>
+						<p>Why not bug your lecturer to upload them?</p>
+					</div>
+					
+					{% endif %}
+
+{% endblock contents-inner %}

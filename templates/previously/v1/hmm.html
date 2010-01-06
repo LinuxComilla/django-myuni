@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>//myuni/error/</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="en" />
+
+		<meta name="Author" content="Rob Miles" />
+		<meta name="Copyright" content="Information copyright respective authors, Design & styles copyright (c) 2008 Ben Jenkinson" />
+		<meta name="Description" content="" />
+
+		<meta name="Robots" content="all" />
+		<meta http-equiv="imagetoolbar" content="false" />
+		<meta name="MSSmartTagsPreventParsing" content="true" />
+
+		<link rel="icon" type="image/gif" href="/media/favicon.gif" />
+		<link rel="apple-touch-icon" href="/media/apple-touch-icon.png" />
+
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="/media/css/reset.css" />
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="/media/charcoal/css/style.css" />
+	</head>
+	<body>
+		<div id="container">
+			<div class="page-container section-error">
+				<div class="page-banner">
+					<h1>//myuni/error</h1>
+				</div>
+				<div class="page-body">
+					<div class="page-header">
+						<h2 class="page-title">
+							Hmm..
+						</h2>
+					</div>
+					<p>The URL you used isn't one I recognise but I'll have a go at working it out..</p>
+				</div>
+			</div>
+			<div class="external">
+				<p><strong>{{path}}</strong> contains the following items:</p>
+				<ol>
+				{% for item in items %}
+					<li>{{ item }}</li>
+				{% endfor %}
+				</ol>
+
+				<p>Perhaps one of these pages is the one you wanted?</p>
+				<ol>
+				{% for link in links %}
+					<li>{{ link }}</li>
+				{% endfor %}
+				</ol>
+			</div>
+		</div>
+		{% include "myuni/global.snippet.debug.html" %}
+	</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.backend.html" %}
+{% block title %}[myUni] Edit your profile{% endblock title %}
+{% block template %}{{block.super}} edit-profile{% endblock template %}
+
+{% block content-inner %}
+
+					<div class="container">
+						<div class="header">
+							<h2><a href="/account/">Account</a> &rarr; Edit your profile</h2>
+						</div>
+						<form class="signup" method="post">
+						{% if form_error %}
+							<div class="error">
+								<p>{{ form_error }}</p>
+							</div>
+						{% endif %}
+							<div class="content">
+							{% for field in form %}
+								<div class="fieldWrapper">
+									{{ field.errors }}
+									{{ field.label_tag }}
+									{{ field }}
+								</div>
+							{% endfor %}
+							</div>
+							<div class="submitOptions">
+								<input type="submit" value="Save Profile" />
+								or <a href="/account/" class="cancel">Cancel and go back</a>
+							</div>
+						</form>
+					</div>
+					
+{% endblock content-inner %}

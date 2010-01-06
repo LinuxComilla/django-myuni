@@ -1,0 +1,147 @@
+{% extends "myuni/base.html" %}
+{% block template %}module{% endblock template %}
+
+{% block title %}{{module}}: {{module.name}} - School of Computer Science, University of Nottingham{% endblock title %}
+
+{% block header-inner %}
+					<span class="parent"><a href="/{{module.time_period.semester.year.reference}}/">{{module.time_period.semester.year.reference}}</a> / <a href="/modules/{{module.time_period.year.reference}}/">Modules</a></span>
+					<h1>
+						<span class="code">{{module}}</span>
+						<span class="name">{{module.name}}</span>
+					</h1>
+{% endblock header-inner %}
+
+{% block content-inner %}
+
+					<div class="secondary">
+						{% block content-secondary %}
+
+						<div class="module">
+							<div class="inner">
+							
+								<ul class="navigation">
+									<li class="this"><a href="/{{module.module.code}}/">Overview</a></li>
+									<li><a href="/{{module.module.code}}/lectures/">Lectures</a></li>
+									<li><a href="/{{module.module.code}}/assignments/">Assignments</a></li>
+									<li><a href="/{{module.module.code}}/coursework/">Coursework</a></li>
+									<li><a href="/{{module.module.code}}/tutor-groups/">Tutor Groups</a></li>
+								</ul>
+
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+								
+						<div class="module">
+							<div class="inner">
+								{% if lecturers %}
+								<h3>Lecturer</h3>
+								<ul class="people-list">
+								{% for person in lecturers %}
+									<li class="person-link">
+										<a href="/{{person.username}}/">
+											<img src="/media/people/{{person.username}}/50px.gif" width="50px" height="50px" />
+											<span class="name">{{person.first_name}} {{person.last_name}}</span>
+										</a>
+									</li>
+								{% endfor %}
+								</ul>
+								{% else %}
+								<div class="alert yellow">
+									<p>No lecturer has been currently been assigned to this lecture.</p>
+								</div>
+								{% endif %}
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+						
+						<div class="module">
+							<div class="inner">
+								{% if tutors %}
+								<h3>Tutors</h3>
+								<ul class="people-list small">
+								{% for person in tutors %}
+									<li class="person-link small">
+										<a href="/{{person.username}}/">
+											<img src="/media/people/{{person.username}}/30px.gif" width="30px" height="30px" />
+											<span class="name">{{person.first_name}} {{person.last_name}}</span>
+										</a>
+									</li>
+								{% endfor %}
+								</ul>
+								{% endif %}
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+
+						{% endblock content-secondary %}
+					</div><!-- /.secondary -->
+
+					<div class="primary">
+						{% block content-primary %}
+						
+							<h3><span>Latest Coursework</span></h3>
+
+							{% if courseworks %}
+
+							<div class="content-module contains-lectures">
+								{% for coursework in courseworks %}
+								<div class="coursework-item">
+									<a href="/{{module.code}}/coursework/{{coursework.id}}/"><strong>{{coursework.title}}</strong></a> <small>{{coursework.date_happened}}</small>
+									{% if coursework.description %}<p class="description">{{coursework.description}}</p>{% endif %}
+								</div>
+								{% endfor %}
+								<div class="archive-link">
+									<p><a href="/{{module.code}}/coursework/">See all of the coursework for this module &raquo;</a></p>
+								</div>
+							</div>
+
+							{% else %}
+
+							<div class="error">
+								<p><em>As far as we know</em>, there is no coursework currently available for this module.</p>
+								<p>Please do <strong>not</strong> take our word for it.</p>
+							</div>
+
+							{% endif %}
+
+							<h3><span>Coursework</span></h3>
+
+							<div class="content-module coursework-list">
+								<div class="coursework-item">
+									<a href="/{{module.code}}/lectures/10/"><strong>Large Coursework #1</strong></a>
+									<p class="description">The first large coursework is now avaiable. It is due in on the 20th March at 5pm. Please note this coursework will be updated with full details of the submission process soon, the problem presented in this coursework will not change from the description given here.</p>
+								</div>
+								<div class="archive-link">
+									<p><small>There is no other coursework for this module</small></p>
+								</div>
+							</div>
+
+							<h3><span>Latest Lectures</span></h3>
+
+							{% if module.lectures.all %}
+
+							<div class="content-module contains-lectures">
+								{% for lecture in module.lectures.all %}
+								<div class="lecture-item">
+									<a href="/{{module.code}}/lectures/{{lecture.id}}/"><strong>Lecture #{{lecture.id}} - {{lecture.title}}</strong></a> <small>{{lecture.date_happened}}</small>
+									{% if lecture.description %}<p class="description">{{lecture.description}}</p>{% endif %}
+								</div>
+								{% endfor %}
+								<div class="archive-link">
+									<p><a href="/{{module.code}}/lectures/">See all Lectures for this module &raquo;</a></p>
+								</div>
+							</div>
+
+							{% else %}
+
+							<div class="error">
+								<p>There are no lectures currently available for this module.</p>
+							</div>
+
+							{% endif %}
+							
+						{% endblock content-primary %}
+					</div><!-- /.primary -->
+					
+					<hr class="clear"/>
+
+{% endblock content-inner %}
+
+{% block shorturl %}<p>The short-URL for this module is <a href="/go/{{module.id}}/">/go/{{module.id}}/</a></p>{% endblock shorturl %}

@@ -1,0 +1,20 @@
+{% extends "myuni/moduleinstance.html" %}
+
+{% block site-messages %}
+	<div class="global-message">
+		<div class="inner">
+			<p>This page should have the URL: <strong>/(year)/(semester)/(module.code)/assignments/</strong></p>
+			<p>Or, if it is a full-year module: <strong>/(year)/(module.code)/assignments/</strong></p>
+		</div>
+	</div>
+{% endblock site-messages %}
+
+{% block content-inner %}
+
+					<h3><span>Assignments</span></h3>
+					
+					<div class="error">
+						<p>This page doesn't do anything yet.</p>
+					</div>
+
+{% endblock content-inner %}

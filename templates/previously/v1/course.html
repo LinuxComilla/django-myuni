@@ -1,0 +1,62 @@
+{% extends "myuni/base.html" %}
+{% block template %}course{% endblock template %}
+
+{% block title %}{{course}}: {{course.name}} - {{course.school}}, University of Nottingham{% endblock title %}
+
+{% block titles %}
+					<span class="parent"><a href="/2008/">2008</a> / <a href="/courses/2008/">Courses</a></span>
+					<h1>
+						<span class="code">{{course.code}}</span>
+						<span class="name">{{course.name}}</span>
+					</h1>
+{% endblock titles %}
+
+{% block content-inner %}
+					<h2>Modules in {{course.code}}</h2>
+
+					<h3><span>First Year</span></h3>
+
+					<h4>All-Year</h4>
+					
+					<div class="">
+						<a class="module-code" href="/2008-2009/G51PRG/">
+							<span class="code">G51PRG</span>
+							<span class="name">Introduction to Programming</span>
+						</a>
+						<span class="description">Lorem ipsum sid dolor amet.</span>
+						<span class="lecturer">Lecturer: <a href="/srb/">Steven Bagley</a></span>
+						<hr class="clear"/>
+					</div>
+					
+					<h4>Autumn</h4>
+					<ul>
+						<li><a class="module-code" href="/2008-2009/G51MCS/">G51MCS</a> Mathematics for Computer Science</li>
+						<li><a class="module-code" href="/2008-2009/G51APS/">G51APS</a> Algorithmic Problem Solving</li>
+						<li><a class="module-code" href="/2008-2009/G51CSA/">G51CSA</a> Computer Systems Architecture</li>
+						<li><a class="module-code" href="/2008-2009/G51CSI/">G51CSI</a> Communicating Information</li>
+						<li><a class="module-code" href="/2008-2009/G51ISS/">G51ISS</a> Introduction to Software Systems</li>
+					</ul>
+
+					<h4>Spring</h4>
+					<ul>
+						<li><a class="module-code" href="/2008-2009/G51WPS/">G51WPS</a> Web Programming &amp; Scripting</li>
+						<li><a class="module-code" href="/2008-2009/G51DBS/">G51DBS</a> Databases</li>
+						<li><a class="module-code" href="/2008-2009/G51DBS/">G51UST</a> UNIX &amp; Software Tools</li>
+					</ul>
+
+					<h3><span>Currently Django has..</span></h3>
+					{% if course.modules.all %}
+					<ul>
+					{% for module in course.modules.all %}
+						<li><a class="module-code" href="/{{module}}/">{{module}}</a> {{module.name}}</li>
+					{% endfor %}
+					</ul>
+					{% else %}
+					<div class="error">
+						<p>There are no modules available for <strong>{{course.code}}</strong> in <strong>2008-2009</strong>.</p>
+					</div>
+					{% endif %}
+					
+{% endblock content-inner %}
+
+{% block shorturl %}<p>The short-URL for this course is <a href="/go/{{course.id}}/">/go/{{course.id}}/</a></p>{% endblock shorturl %}

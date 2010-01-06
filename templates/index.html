@@ -1,0 +1,19 @@
+{% extends "base.backend.html" %}
+{% block template %}{{block.super}} index{% endblock template %}
+{% block title %}MyUni - {{block.super}}{% endblock title %}
+
+{% block content-inner %}
+
+					<div class="container">
+						<div class="header">
+							<h2>Welcome</h2>
+						</div>
+						<div class="content">
+							<p>We decided that every page on the school intranet needed tidying up, so we're rebuilding the entire thing in Django.</p>
+							<p>We recommend you <a href="/account/login/">login</a> to make everything personalised to you.</p>
+							<hr/>
+							<p>Read the <a href="/colophon/">Colophon</a> to find out more.
+						</div>
+					</div>
+
+{% endblock content-inner %}

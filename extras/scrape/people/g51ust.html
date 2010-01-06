@@ -1,0 +1,679 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>TSG</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#ffffff" >
+<table cellpadding=0 cellspacing=0 width=100%>
+<tr>
+<td id="ll" width=15></td>
+<td id="lm">
+<table cellpadding=0 cellspacing=0 width=100%>
+<tr>
+<td align=left width=362>
+<a href="/"><img src="/h3/top_text2.gif" width=362 height=75 border=0 alt="CSiT Systems Support"></a>
+</td>
+<td>
+&nbsp; &nbsp;
+</td>
+<td valign=bottom align=left width=88><a id="main" href="/"><span>main</span></a></td><td valign=bottom align=left width=88><a id="directorysel" href="/directory/"><span>directory</span></a></td><td valign=bottom align=left width=88><a id="tickets" href="/tickets/"><span>tickets</span></a></td><td valign=bottom align=left width=88><a id="logout" href="?logout=1"><span>logout</span></a></td>
+</tr>
+</table>
+<td id="lr" width=15></td>
+</tr>
+</table>
+
+<LINK rel="stylesheet" type="text/css" media="screen" href="/css/tsg3.css">
+<LINK rel="stylesheet" type="text/css" media="print" href="/css/tsg2.css">
+
+<table width="100%" class=none BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<tr>
+<!--<td valign=top width=170>-->
+<!-- HM1 -->
+<td valign=top width=129 class="lmnu">
+
+<table width=129 cellpadding=0 cellspacing=0 class="lmnu">
+<tr><td id=mtsp></td></tr>
+<tr><td id=mt width=129 height=9></td></tr>
+<tr><td id=mm width=144>
+<!--<td valign="top" width="12%" bgcolor="#D8D8D8" nowrap>-->
+<div class=shm><a class=shm href="/help/">Support</a></div>
+<div class=shs><a class=shs href="/help/office/">Support Office</a></div>
+<div class=shs><a class=shs href="/help/docs/">Documentation</a></div>
+<div class=shs><a class=shs href="/help/faq/">FAQ</a></div>
+<div class=shx><a class=shx href="/help/">more...</a></div>
+<div class=shm><a class=shm href="/facilities/">Facilities</a></div>
+<div class=shs><a class=shs href="/facilities/labs/">Labs</a></div>
+<div class=shs><a class=shs href="/facilities/laptops/">Laptop Points</a></div>
+<div class=shs><a class=shs href="/facilities/printers/">Printers</a></div>
+<div class=shx><a class=shx href="/facilities/">more...</a></div>
+<div class=shm><a class=shm href="/services/">Services</a></div>
+<div class=shs><a class=shs href="/services/overview/">Overview</a></div>
+<div class=shs><a class=shs href="/services/email/">Email</a></div>
+<div class=shs><a class=shs href="/services/status/">Service Status</a></div>
+<div class=shx><a class=shx href="/services/">more...</a></div>
+<div class=shm><a class=shm href="/coursework/">Coursework</a></div>
+<div class=shs><a class=shs href="/coursework/cs2group/">2nd Year Projects</a></div>
+<div class=shs><a class=shs href="/coursework/csfinal/">Final Year Projects</a></div>
+<div class=shs><a class=shs href="/coursework/pgt/">Masters Projects</a></div>
+<div class=shx><a class=shx href="/coursework/">more...</a></div>
+<!--
+<div class=shm>University Services</div>
+<div class=shs>Portal</div>
+<div class=shs>Information Services</div>
+<div class=shs>ISCRA</div>
+<div class=shx>more...</div>-->
+<!--<div class=shm><a class=shm href="/about/">About TSG</a></div>-->
+</td></tr>
+<tr><td id=mb width=145 height=12></td></tr>
+</table>
+
+</td>
+<!-- HM2 -->
+<td width=14></td>
+<td valign=top>
+<div class="rightcol">
+<div class="loginbit">Logged in as <i><a href="/profile/">rxm08u</a></i></div>
+
+
+<h2>School Directory Search (Beta)</h2>
+<p><b>Students and Tutors by Module</b></p>
+<form name=csit_module_search action="/directory/" method=post>
+
+<input type=hidden name=doing value=module_members>
+<select name="lookup">
+
+<option value="g50alg">G50ALG - Introduction to Algorithms (10 +0)</option>
+<option value="g50pro">G50PRO - Introduction to Programming (10 +0)</option>
+<option value="g50web">G50WEB - Introduction to the Web (10 +1)</option>
+<option value="g51aps">G51APS - Algorithmic Problem Solving (141 +4)</option>
+<option value="g51csa">G51CSA - Computer Systems Architecture (99 +3)</option>
+<option value="g51dbs">G51DBS - Database Systems (196 +1)</option>
+<option value="g51fun">G51FUN - Functional Programming (105 +1)</option>
+<option value="g51iai">G51IAI - Introduction to Artificial Intelligence (58 +1)</option>
+<option value="g51irb">G51IRB - Introduction to Robotics (26 +1)</option>
+<option value="g51ise">G51ISE - Introduction to Software Engineering (135 +1)</option>
+<option value="g51iss">G51ISS - Introduction to Software Systems (44 +1)</option>
+<option value="g51mcs">G51MCS - Mathematics for Computer Scientists (135 +4)</option>
+<option value="g51prg">G51PRG - Programming (147 +2)</option>
+<option value="g51sci">G51SCI - Skills for Communicating Information (86 +1)</option>
+<option value="g51ust" SELECTED>G51UST - Unix and Software Tools (91 +0)</option>
+<option value="g51wps">G51WPS - Web Programming and Scripting (92 +0)</option>
+<option value="g52ads">G52ADS - Algorithms and Data Structures (184 +3)</option>
+<option value="g52afp">G52AFP - Advanced Functional Programming (19 +1)</option>
+<option value="g52aim">G52AIM - Artificial Intelligence Methods (15 +1)</option>
+<option value="g52aip">G52AIP - Artificial Intelligence Programming (59 +1)</option>
+<option value="g52arb">G52ARB - Advanced Robotics (10 +1)</option>
+<option value="g52ccn">G52CCN - Computer Communications and Networks (208 +1)</option>
+<option value="g52cfj">G52CFJ - C/C++ for Java Programmers (105 +2)</option>
+<option value="g52cmp">G52CMP - Compilers (101 +1)</option>
+<option value="g52con">G52CON - Concepts of Concurrency (117 +1)</option>
+<option value="g52doa">G52DOA - Derivation of Algorithms (11 +0)</option>
+<option value="g52doc">G52DOC - Digital Documents (10 +1)</option>
+<option value="g52grp">G52GRP - Software Engineering Group Project (120 +0)</option>
+<option value="g52gui">G52GUI - Graphical User Interfaces (63 +1)</option>
+<option value="g52hci">G52HCI - Human Computer Interaction (37 +1)</option>
+<option value="g52hpa">G52HPA - History and Philosophy of Artificial Intelligence (11 +1)</option>
+<option value="g52ivg">G52IVG - Introduction to Vision and Graphics (86 +1)</option>
+<option value="g52iws">G52IWS - Internet and Web Services (85 +1)</option>
+<option value="g52lss">G52LSS - Large Scale Systems Design (165 +1)</option>
+<option value="g52mal">G52MAL - Machines and their Languages (108 +1)</option>
+<option value="g52mc2">G52MC2 - Mathematics for Computer Scientists 2 (116 +3)</option>
+<option value="g52obj">G52OBJ - Object-oriented Methods (164 +1)</option>
+<option value="g53acc">G53ACC - Advanced Computer Communications (54 +1)</option>
+<option value="g53agr">G53AGR - Advanced Computer Graphics (13 +1)</option>
+<option value="g53bio">G53BIO - Bioinformatics (15 +1)</option>
+<option value="g53cfr">G53CFR - Computer Aided Formal Reasoning (21 +1)</option>
+<option value="g53dbc">G53DBC - Digital Business Communications (43 +1)</option>
+<option value="g53ddb">G53DDB - Developments in Digital Business (59 +1)</option>
+<option value="g53dia">G53DIA - Designing Intelligent Agents (21 +1)</option>
+<option value="g53dsm">G53DSM - Decision Support Methodologies (25 +1)</option>
+<option value="g53elc">G53ELC - Enterprise Level Computing (94 +1)</option>
+<option value="g53ida">G53IDA - Individual Dissertation Artificial Intelligence (3 +0)</option>
+<option value="g53ide">G53IDE - Individual Dissertation for UK Erasmus Students (2 +0)</option>
+<option value="g53idj">G53IDJ - Individual Dissertation Joint Honours (30 +0)</option>
+<option value="g53ids">G53IDS - Individual Dissertation Single Honours (89 +0)</option>
+<option value="g53idy">G53IDY - Individual Dissertation Software Systems (3 +0)</option>
+<option value="g53krr">G53KRR - Knowledge Representation and Reasoning (42 +1)</option>
+<option value="g53mia">G53MIA - Multimedia Interfaces and Applications (93 +0)</option>
+<option value="g53nsc">G53NSC - Non-Standard Computation (15 +1)</option>
+<option value="g53ops">G53OPS - Operating Systems (109 +1)</option>
+<option value="g53oro">G53ORO - Operations Research and Optimisation (20 +1)</option>
+<option value="g53qat">G53QAT - Quality Assurance and Testing (30 +1)</option>
+<option value="g53sec">G53SEC - Computer Security (88 +1)</option>
+<option value="g53srp">G53SRP - Systems and Real-Time Programming (33 +1)</option>
+<option value="g53vis">G53VIS - Computer Vision (12 +1)</option>
+<option value="g54aor">G54AOR - Algorithm Design and Operations Research (47 +2)</option>
+<option value="g54cfr">G54CFR - Computer-Aided Formal Reasoning (1 +1)</option>
+<option value="g54cmf">G54CMF - Computer Programming Methods for Finance (19 +1)</option>
+<option value="g54dsm">G54DSM - Decision Support Methodologies (2 +2)</option>
+<option value="g54fop">G54FOP - Mathematical Foundations of Programming (6 +1)</option>
+<option value="g54gam">G54GAM - Games (11 +0)</option>
+<option value="g54hsm">G54HSM - Heuristic Search Methods (3 +1)</option>
+<option value="g54nsc">G54NSC - Non-Standard Computation (1 +1)</option>
+<option value="g54pro">G54PRO - Research Project in Advanced Computing Science (4 +0)</option>
+<option value="g54qmf">G54QMF - Quantitative Methods for Finance (48 +1)</option>
+<option value="g54ubi">G54UBI - Ubiquitous Computing (10 +2)</option>
+<option value="g64ads">G64ADS - Advanced Data Structures (21 +1)</option>
+<option value="g64dbs">G64DBS - Database Systems (54 +1)</option>
+<option value="g64fai">G64FAI - Foundations of Artificial Intelligence (37 +1)</option>
+<option value="g64hll">G64HLL - High-level Languages (56 +3)</option>
+<option value="g64icp">G64ICP - Introduction to Computer Programming (78 +1)</option>
+<option value="g64ids">G64IDS - Individual Project: Interactive Systems Design (8 +0)</option>
+<option value="g64ihf">G64IHF - Issues in Human Factors (90 +1)</option>
+<option value="g64inc">G64INC - Introduction to Network Communications (54 +1)</option>
+<option value="g64mit">G64MIT - Management of IT (59 +1)</option>
+<option value="g64oos">G64OOS - Object Oriented Systems (30 +1)</option>
+<option value="g64pit">G64PIT - Project in Information Technology (22 +0)</option>
+<option value="g64pmi">G64PMI - Project in the Management of Information Technology (53 +0)</option>
+<option value="g64pmm">G64PMM - New Media Design (62 +1)</option>
+<option value="g64pre">G64PRE - Computer Science Technology Transfer Project (8 +0)</option>
+<option value="g64spm">G64SPM - Software Project Management (75 +0)</option>
+<option value="g64swe">G64SWE - Software Engineering (30 +1)</option>
+<option value="g64uet">G64UET - Unix Environments and Administration (65 +1)</option>
+<option value="g64uid">G64UID - User Interface Design (64 +3)</option>
+<option value="gtest123">GTEST123 - TSG Test Module (2 +0)</option>
+</select>
+<input type="SUBMIT" value="Find" name="Find">
+</form>
+<table cellpadding=0 cellspacing=0>
+<tr><td colspan=4><table cellpadding=0 cellspacing=0 width=100%>
+<tr><td class=bor width=100%><img src="/images/bl.gif" width=1 height=1></td>
+</tr>
+</table>
+</td></tr>
+<tr><td class=bor><img src="/images/bl.gif" width=1 height=1></td><td>
+<table cellpadding=0 cellspacing=0>
+<tr><th><img src="/images/bl.gif" width=5 height=1></th>
+<th class=l width="230">Name</th><th><img src="/images/bl.gif" width=5 height=1></th>
+<th class=l width="340">Role/Course</th><th><img src="/images/bl.gif" width=5 height=1></th>
+<th class=l width="100">Username</th><th><img src="/images/bl.gif" width=5 height=1></th>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2" COLSPAN=5><b><i>Tutors</i></b></td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2" COLSPAN=5>&nbsp;</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2" COLSPAN=5><b><i>Students</i></b></td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=225485">Al Ramadan, Mohammed Sadek</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">msa08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247603">Albers, Matthew Anthony Constant</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">maa08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=249441">Alkhalifa, Ali</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">axa08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=249621">Alotaibi, Fahad Turki F</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">fta08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=225305">Alzahrani, Ali Khalid</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">aka08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246523">Amies, Ryan</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Software Systems (G601)</td><td></td>
+<td nowrap class="sm2">rxa08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246837">Balderstone, Michelle Elizabeth</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Software Systems (G601)</td><td></td>
+<td nowrap class="sm2">meb08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=244479">Barton, Thomas</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">txb18u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246478">Belfield, Tim</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">txb08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247851">Bell, Nathaniel James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Artificial Intelligence (G4G7)</td><td></td>
+<td nowrap class="sm2">nxb08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245957">Bhatti, Paramdeep</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">pxb08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245673">Bingham, Samantha Rebecca</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Robotics (G4H6)</td><td></td>
+<td nowrap class="sm2">srb08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245992">Bird, Matthew</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">mxb08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=228710">Boucher, James Eliott</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">jeb08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=244191">Bradshaw, John Clifford</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">jcb18u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=242333">Braund, James Christopher Edward</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">jcb08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247656">Calian, Dan Andrei</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Artificial Intelligence (G4G7)</td><td></td>
+<td nowrap class="sm2">dxc08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245749">Catherall, Richard William</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">rwc08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245805">Dooley, Richard Philip</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">rpd08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247498">Dunn, Paul</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">pxd08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247370">Elsworth, Darren  James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">dje08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=243645">Gardner, Christopher Adrian</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">cag08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245187">Garrison, Wayne</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">wxg08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=241860">Golding, Robert James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">rjg08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=226608">Gomersall, Daniel Rupert</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">drg08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=228549">Gosden, Jonathan Andrew James</a></td><td></td>
+<td nowrap class="sm2">BSc Jt Hons Computer Science and Management Studies (GN42)</td><td></td>
+<td nowrap class="sm2">jxg07u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246238">Hakimi-Nayeri, Daniel</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Software Systems (G601)</td><td></td>
+<td nowrap class="sm2">dxh18u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247597">Head, Christopher</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">cxh08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=231205">Ho Dac, Dung Viet</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">dvh07o</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=241756">Holliday, Nicholas Guillermo</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Artificial Intelligence (G4G7)</td><td></td>
+<td nowrap class="sm2">ngh08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=242875">Hughes, Rory James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">rjh08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245464">Humphries, Robert Michael</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">rmh08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247703">Iqbal, Azeem</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">axi08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246472">James, Henry Edward John</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">hej08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=244143">Jenkinson, Ben</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">bxj08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=249535">Jones, Chris Morton</a></td><td></td>
+<td nowrap class="sm2">MEng Hons Civil Engineering 4 year UG (H200)</td><td></td>
+<td nowrap class="sm2">cmj08o</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247098">Junaid Hussain, Mohammed</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">mxj08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245243">Kudresov, Vitalij</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">vxk08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=249746">Lam, Ka Ying</a></td><td></td>
+<td nowrap class="sm2">Subsid Student</td><td></td>
+<td nowrap class="sm2">kyl08o</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247806">Larman, Stephen</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">sxl28u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=224912">Leigh, Michael James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Software Systems (G601)</td><td></td>
+<td nowrap class="sm2">mjl07u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=242944">Lensvelt, Christopher</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">cxl08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245265">Lewis, Daniel James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">djl08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=244114">Limbu, Jessica</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">jxl08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246948">Mante, Jeffrey</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">jxm08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245488">Matheou, Eleni</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">exm08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246020">McMurtrie, Shauna Marie</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Artificial Intelligence (G4G7)</td><td></td>
+<td nowrap class="sm2">smm08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246646">McNeil, Alexander James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">ajm08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=242841">Miles, Robert</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">rxm08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=244850">Morgan, Hannah Rachael</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">hrm08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247492">Morton, James David</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Software Systems (G601)</td><td></td>
+<td nowrap class="sm2">jdm08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247252">Munjoma, Brian</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">bxm08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246098">Nurse, Amos</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">axn08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246361">O'Brien, James Michael</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">jmo08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=224764">O'Neill, Luke</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">lxo08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245546">O'Reilly, Edward John Howlett</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">ejo08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=231290">Ogunode, Emmanuel</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Software Systems (G601)</td><td></td>
+<td nowrap class="sm2">exo07u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246674">Oleszczynski, Michael</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">mxo08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245938">Owen, Clifford Yorik</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">cyo08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245756">Page, Philip David</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Artificial Intelligence (G4G7)</td><td></td>
+<td nowrap class="sm2">pdp08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=242147">Paul, Jeremy Joseph Chris</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">jjp08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247816">Petrov, Krasimir Petrov</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">kpp08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246979">Polley, Aaron</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">axp08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246009">Poolman, Geoffrey Stewart</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">gsp08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247171">Pugh, Robert</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">rxp08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=241568">Radbourne, Martin James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Artificial Intelligence (G4G7)</td><td></td>
+<td nowrap class="sm2">mjr08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=153324">Rea, Alexander Michael Harry</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">amr08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246873">Redrup, William Robert Philip</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">wrr08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245905">Robinson, Charles Desmond</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Artificial Intelligence (G4G7)</td><td></td>
+<td nowrap class="sm2">cdr08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247826">Rocca, Daniel</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">dxr08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=244901">Rose, Samuel</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">sxr08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=244230">Sassoon, Gil</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">gxs08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=229749">Seo, Tammie Li - Yie</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">tls08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247119">Seymour, James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">jxs28u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245910">Sharp, Oliver</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">oxs08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=226069">Siber, Hasan</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">hxs08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245143">Simms, Robert Michael</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Artificial Intelligence (G4G7)</td><td></td>
+<td nowrap class="sm2">rms08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=245111">Stannard, Alexander</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science with Artificial Intelligence (G4G7)</td><td></td>
+<td nowrap class="sm2">axs08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247443">Suleman, Waseem</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">wxs08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=244537">Sutton, Matthew</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">mxs08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247163">Swaby, Joseph Paul</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Software Systems (G601)</td><td></td>
+<td nowrap class="sm2">jps08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=150069">Tasker, Adam James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">ajt08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=249444">Titmuss, James</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">jxt08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=247298">Wadsworth, Benjamin Antony</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">baw08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246998">Wesson, Amy Jane</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">ajw08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=242248">Whybrow, Marcus</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">mxw18u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=243664">Wooldrige, Alistair Glen</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">agw08u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=225399">Wu, Yimeng</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">yxw18u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=123595">Yoo, Sunggoo</a></td><td></td>
+<td nowrap class="sm2">BSc (Ordinary) Computer Science and Management Studies (GN42)</td><td></td>
+<td nowrap class="sm2">sgy06u</td><td></td>
+</tr>
+<tr class=un2><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=248251">Yordanov, Dimitar Tomov</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">dty08u</td><td></td>
+</tr>
+<tr class=un><td></td>
+<td nowrap class="sm2"><a href="/directory/?pers=246786">Younas, Shamraiz</a></td><td></td>
+<td nowrap class="sm2">BSc Hons Computer Science (G400)</td><td></td>
+<td nowrap class="sm2">sxy08u</td><td></td>
+</tr>
+</table>
+</td><td class=bor width=1><img src="/images/bl.gif" width=1 height=1></td></tr>
+<tr><td class=bor colspan=3><img src="/images/bl.gif" width=1 height=1></td></tr>
+</table>
+
+</div>
+<div style="height:17px"></div>
+</td>
+<td width=5>
+&nbsp;
+</td>
+</tr>
+</table>
+<!--<div class="gfoot">-->
+<p align="right">
+<i></i>
+</p>
+<!--</div>-->
+
+</BODY>
+</HTML>
+
+

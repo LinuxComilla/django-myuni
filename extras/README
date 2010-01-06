@@ -1,0 +1,17 @@
+Files in this folder are imported in the following way:
+
+from myuni.util import [file]
+
+or...
+
+from myuni.util import *
+
+For this reason, if you place anything in here that does something (likes wipes
+the database for example), then place it ALL in a function, and put the following
+at the bottom of the file:
+
+if __name__ == "__main__":
+    <call_function>
+
+This way, if someone imports your file by accident (i.e. with import *), your
+code won't run and wipe the DB.

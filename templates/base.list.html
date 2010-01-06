@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{block.super}}{% endblock title %}
+{% block template %}browse{% endblock template %}
+
+{% block content-inner %}
+					
+					<div class="secondary">
+						{% block content-secondary %}
+
+						{% endblock content-secondary %}
+					</div><!-- /.secondary -->
+
+					<div class="primary">
+						{% block content-primary %}
+						
+						{% endblock content-primary %}
+					</div><!-- /.primary -->
+					
+					<hr class="clear"/>
+
+{% endblock content-inner %}

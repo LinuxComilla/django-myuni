@@ -1,0 +1,32 @@
+{% extends "myuni/browse.html" %}
+{% block title %}Courses - {{block.super}}{% endblock title %}
+
+{% block site-messages %}
+	<div class="global-message">
+		<div class="inner">
+			<p>This page should have the URL: <a href="/courses/">/courses/</a></p>
+		</div>
+	</div>
+{% endblock site-messages %}
+
+{% block header-inner %}
+				<h1>Courses</h1>
+{% endblock header-inner %}
+
+{% block content-inner %}
+				<div class="error">
+					<p>This page is not yet complete.</p>
+				</div>
+				<h3><span>Currently Django has..</span></h3>
+				{% if courses %}
+				<ul>
+				{% for course in courses %}
+					<li><a class="course-code" href="{{course.get_absolute_url}}">{{course}}</a> {{course.name}}</li>
+				{% endfor %}
+				</ul>
+				{% else %}
+				<div class="error">
+					<p>There are no courses available for 2008-2009.</p>
+				</div>
+				{% endif %}
+{% endblock content-inner %}

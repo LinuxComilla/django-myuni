@@ -1,0 +1,169 @@
+{% extends "myuni/base.html" %}
+{% load filters %}
+{% block title %}{{module}}: {{module.name}} - {{block.super}}{% endblock title %}
+{% block template %}moduleinstance{% endblock template %}
+
+{% block site-messages %}
+	<div class="global-message">
+		<div class="inner">
+			<p>This page should have the URL: <strong>/(year)/(semester)/(module.code)/</strong></p>
+			<p>Or, if it is a full-year module: <strong>/(year)/(module.code)/</strong></p>
+			<ul>
+				<li>module.semester = "Spring Semester for 2008-2009" = <strong>{{module.semester}}</strong></li>
+				<li>module.get_semester = "Spring Semester for 2008-2009" = <strong>{{module.get_semester}}</strong></li>
+				<li>module.semester.name = "Spring Semester" = <strong>{{module.semester.name}}</strong></li>
+				<li>module.semester.name_short = "Spring" = <strong>{{module.semester.name_short}}</strong></li>
+				<li>module.semester.slug = "spring" = <strong>{{module.semester.slug}}</strong></li>
+				<li>module.semester.slug.capitalize = "Spring" = <strong>{{module.semester.slug.capitalize}}</strong></li>
+				<li>module.year = <strong>{{module.year}}</strong></li>
+				<li>module.year.reference = "2008-2009" = <strong>{{module.year.reference}}</strong></li>
+			</ul>
+		</div>
+	</div>
+{% endblock site-messages %}
+
+{% block header-inner %}
+					<h1>
+						<span class="code">{{module.code}}</span>
+						<span class="name">{{module.name}}</span>
+					</h1>
+					<h2><a href="/modules/{{module.year.reference}}/">{{module.year.reference}}</a> &rarr; {% if module.semester %}<a href="/modules/{{module.year.reference}}/{{module.semester.slug}}/">{{module.semester.slug.capitalize}}</a>{% else %}<a href="/{{module.year.reference}}/full-year/modules/">Full-Year</a>{% endif %}</h2>
+{% endblock header-inner %}
+
+{% block content-inner %}
+
+					<div class="secondary">
+						{% block content-secondary %}
+
+						<div class="module">
+							<div class="inner">
+							
+								{% spaceless %}<ul class="navigation">
+									<li class="this first"><a href="{{module.get_absolute_url}}">Overview</a></li>
+									{% if module.lectures.all %}
+										<li><a href="{{module.get_absolute_url}}lectures/">Lectures</a></li>
+										{% else %}
+										<li class="disabled">Lectures</li>
+									{% endif %}
+									{% if module.assignments.all %}
+										<li><a href="{{module.get_absolute_url}}assignments/">Assignments</a></li>
+										{% else %}
+										<li class="disabled">Assignments</li>
+									{% endif %}
+									{% if module.coursework.all %}
+										<li><a href="{{module.get_absolute_url}}coursework/">Coursework</a></li>
+										{% else %}
+										<li class="disabled">Coursework</li>
+									{% endif %}
+									<li class="last"><a href="{{module.get_absolute_url}}tutor-groups/">Tutor Groups</a></li>
+								</ul>{% endspaceless %}
+
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+								
+						<div class="module">
+							<div class="inner">
+								{% if module.lecturers %}
+								<h3>Lecturer</h3>
+								<ul class="people-list">
+								{% for person in module.lecturers.all %}
+									<li class="person-link{% if forloop.first %} first{% endif %}{% if forloop.last %} last{% endif %}">
+										<a href="/people/{{person.username}}/">
+											<img src="/media/people/{{person.username}}/50px.gif" width="50px" height="50px" />
+											<span class="name">{{person.first_name}} {{person.last_name}}</span>
+										</a>
+									</li>
+								{% endfor %}
+								</ul>
+								{% else %}
+								<div class="error">
+									<p>No lecturers have been assigned to this module.</p>
+								</div>
+								{% endif %}
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+						
+						<div class="module">
+							<div class="inner">
+								{% if module.tutors %}
+								<h3>Tutors</h3>
+								<ul class="people-list small">
+								{% for person in module.tutors.all %}
+									<li class="person-link small{% if forloop.first %} first{% endif %}{% if forloop.last %} last{% endif %}">
+										<a href="/people/{{person.username}}/">
+											<img src="/media/people/{{person.username}}/30px.gif" width="30px" height="30px" />
+											<span class="name">{{person.first_name}} {{person.last_name}}</span>
+										</a>
+									</li>
+								{% endfor %}
+								</ul>
+								{% else %}
+								<div class="error">
+									<p>No tutors have been assigned to this module.</p>
+								</div>
+								{% endif %}
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+
+						{% endblock content-secondary %}
+					</div><!-- /.secondary -->
+
+					<div class="primary">
+						{% block content-primary %}
+						
+							<h3><span>Latest Coursework</span></h3>
+
+							{% if courseworks %}
+
+							<div class="content-module contains-lectures">
+								{% for coursework in courseworks %}
+								<div class="coursework-item">
+									<a href="/{{module.code}}/coursework/{{coursework.id}}/"><strong>{{coursework.title}}</strong></a> <small>{{coursework.date_happened}}</small>
+									{% if coursework.description %}<p class="description">{{coursework.description}}</p>{% endif %}
+								</div>
+								{% endfor %}
+								<div class="archive-link">
+									<p><a href="/{{module.code}}/coursework/">See all of the coursework for this module &raquo;</a></p>
+								</div>
+							</div>
+
+							{% else %}
+
+							<div class="error">
+								<p><em>As far as we know</em>, there is no coursework assigned to this module.</p>
+							</div>
+
+							{% endif %}
+
+							<h3><span>Latest Lectures</span></h3>
+
+							{% if module.lectures.all %}
+
+							<div class="content-module contains-lectures">
+								{% for lecture in module.lectures.all %}
+								<div class="lecture-item">
+									<a href="/{{module.code}}/lectures/{{lecture.id}}/"><strong>Lecture #{{lecture.id}} - {{lecture.title}}</strong></a> <small>{{lecture.date_happened}}</small>
+									{% if lecture.description %}<p class="description">{{lecture.description}}</p>{% endif %}
+								</div>
+								{% endfor %}
+								<div class="archive-link">
+									<p><a href="{{module.get_absolute_url}}lectures/">See all Lectures for this module &raquo;</a></p>
+								</div>
+							</div>
+
+							{% else %}
+
+							<div class="error">
+								<p>There are no lecture notes currently available for this module.</p>
+							</div>
+
+							{% endif %}
+							
+						{% endblock content-primary %}
+					</div><!-- /.primary -->
+					
+					<hr class="clear"/>
+
+{% endblock content-inner %}
+
+{% block shorturl %}<p>The short-URL for this module is <a href="/go/{{module.id}}/">/go/{{module.id}}/</a></p>{% endblock shorturl %}

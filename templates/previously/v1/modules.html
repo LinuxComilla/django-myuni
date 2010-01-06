@@ -1,0 +1,21 @@
+{% extends "myuni/base.html" %}
+{% block template %}modules{% endblock template %}
+
+{% block title %}Modules - School of Computer Science, University of Nottingham{% endblock title %}
+
+{% block content-inner %}
+							<h2>Modules for 2008-2009</h2>
+							
+							<h3><span>Currently Django has..</span></h3>
+							{% if modules %}
+							<ul>
+							{% for module in modules %}
+								<li><a class="module-code" href="{{module.get_url}}">{{module}}</a> {{module.name}}</li>
+							{% endfor %}
+							</ul>
+							{% else %}
+							<div class="error">
+								<p>There are no modules available for 2008-2009.</p>
+							</div>
+							{% endif %}
+{% endblock %}

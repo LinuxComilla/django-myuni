@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load filters %}
+
+{% block site-messages %}
+	<div class="global-message">
+		<div class="inner">
+			<p><strong>module.html</strong></p>
+			<p>This page should have the URL: <a href="/modules/{{module.code}}/">/modules/{{module.code}}/</a></p>
+		</div>
+	</div>
+{% endblock site-messages %}
+
+{% block header-inner %}
+					<h1>
+						<span class="code">{{module.code}}</span>
+						<span class="name">{{module.name}}</span>
+					</h1>
+{% endblock header-inner %}

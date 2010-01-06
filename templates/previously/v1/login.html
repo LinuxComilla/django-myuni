@@ -1,0 +1,33 @@
+{% extends "myuni/base.backend.html" %}
+{% block title %}//login - School of Computer Science, University of Nottingham{% endblock title %}
+
+{% block content-inner %}
+
+					<div class="container">
+						<div class="header">
+							<h1>Login</h1>
+						</div>
+						<form method="post">
+							{% if form_error %}
+								<div class="error">
+									{{ form_error }}
+								</div>
+							{% endif %}
+							{% for field in form %}
+								<div class="fieldWrapper">
+									{{ field.errors }}
+									{{ field.label_tag }}
+									{{ field }}
+								</div>
+							{% endfor %}
+							<div class="SubmitOptions">
+								<input type="submit" value="Login" />
+								or <a href="/" class="cancel">Cancel and go back</a>
+							</div>
+						</form>
+					</div>
+					<script type="text/javascript">
+						document.getElementById('id_username').focus()
+					</script>
+
+{% endblock content-inner %}

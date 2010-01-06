@@ -1,0 +1,237 @@
+{% extends "myuni/module.html" %}
+
+{% block main-column %}
+
+					<h3><span>Lectures</span></h3>
+
+					{% if module.lectures.all %}
+					
+					<div class="content-module contains-lectures">
+						{% for lecture in module.lectures.all %}
+						<div class="lecture-item">
+							<a href="/{{module.code}}/lectures/{{lecture.id}}/"><strong>Lecture #{{lecture.id}} - {{lecture.title}}</strong></a> <small>{{lecture.date_happened}}</small>
+							{% if lecture.description %}<p class="description">{{lecture.description}}</p>{% endif %}
+						</div>
+						{% endfor %}
+					</div>
+					
+					{% else %}
+					
+					<div class="error">
+						<p>There are no lectures currently available for this module.</p>
+						<p>Why not bug your lecturer to upload them?</p>
+					</div>
+					
+					{% endif %}
+
+{% endblock main-column %}
+
+{% block sidebar-column %}
+
+							<h3>Labs</h3>
+							<p>Labs are held on a <strong>Tuesday afternoon</strong> in the main terminal room (<strong>A32</strong>).</p>
+							<p>Attendance at labs is compulsory unless you are already submitting perfect or near-perfect solutions to exercises. If you miss a lab session and do not submit that week's exercises without good reason, you will be asked to contact a member of staff regarding the reasons for this, and this may results in your CSIT account being locked.</p>
+
+							<h3>Groups</h3>
+							<p>You are assigned a group to work in during the labs. This group defines who your demonstrator will be and where abouts you sit. Groups are assigned randomly , and you are not permitted to swap groups or to sit within the designated area of another group during lab times. This allows the demonstrators to learn who their students are more easily and prevents some plagiarism problems.</p>
+
+{% endblock sidebar-column %}
+
+
+							<h3>Tutor Group, by Username</h3>
+							<p>The idea is for this table to be filterable using a useful ajax widget.</p>
+
+							<!-- ######### BEGIN -->
+
+							<table>
+								<tr class="negative">
+									<th>Username</th>
+									<th>Session</th>
+									<th>Group</th>
+								</tr>
+								<tr><td>afm08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>agw08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>ahr08u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>ajm08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>ajt08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>ajw08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>aka08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>amr08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>asj08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>atk08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>axa08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>axb07u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>axb08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>axf08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>axi08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>axl08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>axm08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>axn08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>axn08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>axp08u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>axs08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>baw08u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>bkm08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>bxh08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>bxj08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>bxm08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>bxs08u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>cag08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>cah08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>cdr08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>ckc08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>cmr08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>cxh08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>cxl08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>cxn08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>cyo08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>dje08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>djl08u</td><td>
+								2-4pm</td><td class="greengroup">Green</td></tr><tr><td>dka07u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>drg08u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>dty08u</td><td>
+								2-4pm</td><td class="whitegroup">White</td></tr><tr><td>dvh07o</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>dxc08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>dxh08u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>dxh18u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>dxr08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>ejo08u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>exk08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>exm08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>exr08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>fta08u</td><td>
+								2-4pm</td><td class="whitegroup">White</td></tr><tr><td>gsp08u</td><td>
+								2-4pm</td><td class="greengroup">Green</td></tr><tr><td>gxs08u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>hcc08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>hej08u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>hmc08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>hrm08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>hxm18u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>hxs08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>ixa08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>jcb08u</td><td>
+								2-4pm</td><td class="greengroup">Green</td></tr><tr><td>jcb18u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>jdm08u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>jeb08u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>jhs08u</td><td>
+								2-4pm</td><td class="whitegroup">White</td></tr><tr><td>jhw08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>jjp08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>jlw08u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>jmo08u</td><td>
+								2-4pm</td><td class="whitegroup">White</td></tr><tr><td>jpd07u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>jps08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>jrg08u</td><td>
+								2-4pm</td><td class="whitegroup">White</td></tr><tr><td>jwb08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>jxl08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>jxm08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>jxs28u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>jxs38u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>jxt08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>khh08u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>kpb08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>kpp08u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>kxb08u</td><td>
+								2-4pm</td><td class="greengroup">Green</td></tr><tr><td>kxj08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>lxo08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>maa08u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>mas08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>mcj08u</td><td>
+								2-4pm</td><td class="greengroup">Green</td></tr><tr><td>meb08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>mjl07u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>mjr08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>mkd08u</td><td>
+								2-4pm</td><td class="yellowgroup">Yellow</td></tr><tr><td>msa08u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>mxa08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>mxb08u</td><td>
+								2-4pm</td><td class="whitegroup">White</td></tr><tr><td>mxe08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>mxj08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>mxn08u</td><td>
+								2-4pm</td><td class="bluegroup">Blue</td></tr><tr><td>mxo08u</td><td>
+								2-4pm</td><td class="greengroup">Green</td></tr><tr><td>mxs08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>mxw18u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>ngh08u</td><td>
+								2-4pm</td><td class="redgroup">Red</td></tr><tr><td>nxb08u</td><td>
+								2-4pm</td><td class="greengroup">Green</td></tr><tr><td>nxd08u</td><td>
+								2-4pm</td><td class="whitegroup">White</td></tr><tr><td>oxs08u</td><td>
+								2-4pm</td><td class="purplegroup">Purple</td></tr><tr><td>pdp08u</td><td>
+								2-4pm</td><td class="whitegroup">White</td></tr><tr><td>phk08u</td><td>
+								2-4pm</td><td class="orangegroup">Orange</td></tr><tr><td>pxb08u</td><td>
+								2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>pxd08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>pxp08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>rhn08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>rjg08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>rjh08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>rlg08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>rmh08u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>rms08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>rpd08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>rwa08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>rwc08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>rxa08u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>rxa18u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>rxd08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>rxm07u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>rxm08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>rxn08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>rxp08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>rxp18u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>rxp28u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>rxs08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>rxs18u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>sao08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>sas08o</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>sdh08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>sgl08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>smm08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>srb08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>sxb08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>sxk08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>sxl08u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>sxl28u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>sxr08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>sxr18u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>sxt08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>sxw08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>sxy08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>tjm08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>tjp08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>tls08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>txb08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>txb18u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>txd08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>txh08u</td><td>2-4pm</td><td class="greengroup">Green</td></tr>
+								<tr><td>txs18u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>vdg08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>vjf08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>vxk08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>vxn08u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>vxv08u</td><td>2-4pm</td><td class="bluegroup">Blue</td></tr>
+								<tr><td>wli08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>wrr08u</td><td>2-4pm</td><td class="orangegroup">Orange</td></tr>
+								<tr><td>wxd08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>wxg08u</td><td>2-4pm</td><td class="purplegroup">Purple</td></tr>
+								<tr><td>wxs08u</td><td>2-4pm</td><td class="whitegroup">White</td></tr>
+								<tr><td>yhh08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>yxw18u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>zxh07u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+								<tr><td>zxm08u</td><td>2-4pm</td><td class="yellowgroup">Yellow</td></tr>
+								<tr><td>zxy08u</td><td>2-4pm</td><td class="redgroup">Red</td></tr>
+							</table>
+
+
+							<!-- ######### END -->
+
+						</div>
+						<hr class="clear" />
+					</div>
+					<div class="meta bottom">
+						Browse previous years &raquo; <a href="/{{module.code}}/2008/">2008</a> &bull; <a href="/{{module.code}}/2007/">2007</a> &bull; <a href="/{{module.code}}/2006/">2006</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		{% include "myuni/global.snippet.debug.html" %}
+	</body>
+</html>

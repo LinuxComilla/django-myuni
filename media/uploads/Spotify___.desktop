@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Spotify
+Exec=env WINEPREFIX="/home/GOLDING/rob/.wine" wine "C:\\Program Files\\Spotify\\spotify.exe" 
+Type=Application
+StartupNotify=true
+Path=/home/GOLDING/rob/.wine/dosdevices/c:/Program Files/Spotify
+Icon=/home/GOLDING/rob/.local/share/icons/bdbf_spotify.0.png

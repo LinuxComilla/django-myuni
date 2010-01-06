@@ -1,0 +1,92 @@
+{% extends "myuni/browse.html" %}
+{% block title %}{% if group %}{{group.name}}{% else %}People{% endif %} - {{block.super}}{% endblock title %}
+
+{% block site-messages %}
+	<!-- <div class="global-message">
+		<div class="inner">
+			<p>This page should have the URL: <a href="/people/">/people/</a></p>
+			<ul>
+				<li>groups = {{groups}}</li>
+				<li>group.slug = {{group.slug}}</li>
+				<li>group.name = {{group.name}}</li>
+			</ul>
+		</div>
+	</div> -->
+{% endblock site-messages %}
+
+{% block header-inner %}
+	<ul class="meta">
+		<li><small>By</small></a></li>
+		<li>{% ifnotequal ordering "by-first-name" %}{% ifnotequal ordering "by-last-name" %}Role{% else %}<a href="/people/{% if group %}groups/{{group.slug}}/{% endif %}">Role</a>{% endifnotequal %}{% else %}<a href="/people/{% if group %}groups/{{group.slug}}/{% endif %}">Role</a>{% endifnotequal %}</li>
+		<li>{% ifnotequal ordering "by-first-name" %}<a href="/people/{% if group %}groups/{{group.slug}}/{% endif %}by-first-name/">First Name{% else %}First Name{% endifnotequal %}</a></li>
+		<li>{% ifnotequal ordering "by-last-name" %}<a href="/people/{% if group %}groups/{{group.slug}}/{% endif %}by-last-name/">Last Name{% else %}Last Name{% endifnotequal %}</a></li>
+	</ul>
+	<ul class="meta">
+		{% if group %}
+			<li><a href="/people/">All</a></li>
+		{% else %}
+			<li>All</li>
+		{% endif %}
+		{% for groupoption in groups %}
+			{% ifequal groupoption.slug group.slug %}
+			<li>{{groupoption.name}}</li>
+			{% else %}
+			<li><a href="/people/groups/{{groupoption.slug}}/{% if ordering %}{{ordering}}/{% endif %}">{{groupoption.name}}</a></li>
+			{% endifequal %}
+		{% endfor %}
+	</ul>
+	<h1>{% if group %}{{group.name}}{% else %}People{% endif %}</h1>
+{% endblock header-inner %}
+
+{% block content-inner %}
+					
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Name</th>
+								<th>Role</th>
+								<th>Telephone</th>
+								<th>URL</th>
+								<th>Email</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for person in people %}
+								{% ifnotequal ordering "by-first-name" %}
+								{% ifnotequal ordering "by-last-name" %}
+								{% ifchanged person.role_description %}
+							<tr>
+								<th></th>
+								<th colspan="5">
+									{{ person.role_description }}
+								</th>
+							</tr>
+								{% endifchanged %}
+								{% endifnotequal %}
+								{% endifnotequal %}
+							<tr>
+								<td><img src="/media/people/{{person.username}}/30px.gif" width="30px" height="30px" /></td>
+								<td>
+									<a href="/people/{{person.username}}/">
+										{% ifequal ordering "by-last-name" %}
+											<span class="name"><strong>{{person.last_name}}</strong>, {{person.first_name}}{% if person.initial %} {{person.initial}}.{% endif %}</span>
+										{% else %}
+											{% ifequal ordering "by-first-name" %}
+											<span class="name"><strong>{{person.first_name}}</strong>{% if person.initial %} {{person.initial}}.{% endif %} {{person.last_name}}</span>
+											{% else %}
+											<span class="name">{{person.get_full_name}}</span>
+											{% endifequal %}
+										{% endifequal %}
+									</a>
+								</td>
+								<td>{{ person.role_description }}</td>
+								<td><span class="telephone">{{person.phone}}</span></td>
+								<td><a href="http://cs.nott.ac.uk/~{{person.username}}/" class="url">{{person.username}}</a></td>
+								<td><a href="mailto:{{person.email}}" class="email">email</a></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					
+{% endblock content-inner %}

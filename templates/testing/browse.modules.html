@@ -1,0 +1,22 @@
+{% extends "myuni/browse.html" %}
+{% block title %}Modules - {{block.super}}{% endblock title %}
+
+{% block site-messages %}
+	<div class="global-error">
+		<div class="inner">
+			<p>This page should have the URL: <strong>/modules/</strong></p>
+		</div>
+		
+	</div>
+	<h2>Currently Taught Modules:</h2>
+	{% for module in modules %}
+		{{module}}<br />
+	{% endfor %}
+{% endblock site-messages %}
+
+{% block contents-inner %}
+				<h2>Browse Modules</h2>
+				
+{% endblock contents-inner %}
+
+

@@ -1,0 +1,22 @@
+{% extends "myuni/person.html" %}
+{% block template %}{{block.super}} person-teaching{% endblock template %}
+
+{% block content-primary %}
+							<h3><span>Students</span></h3>
+							{% if students %}
+							<ul>
+							{% for student in students %}
+								<li>
+									<a href="/people/{{student.username}}/">
+										<img src="/media/people/{{student.username}}/30px.gif" width="30px" height="30px" />
+										<span class="name">{{ student.getName }}</span>
+									</a>
+								</li>
+							{% endfor %}
+							</ul>
+							{% else %}
+							<div class="error">
+								<p>This person doesn't have any students.</p>
+							</div>
+							{% endif %}
+{% endblock content-primary %}

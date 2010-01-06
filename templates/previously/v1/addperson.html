@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>//myuni/people/add/</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="en" />
+
+		<meta name="Author" content="Rob Miles" />
+		<meta name="Copyright" content="Information copyright respective authors, Design & styles copyright (c) 2008 Ben Jenkinson" />
+		<meta name="Description" content="" />
+
+		<meta name="Robots" content="all" />
+		<meta http-equiv="imagetoolbar" content="false" />
+		<meta name="MSSmartTagsPreventParsing" content="true" />
+
+		<link rel="icon" type="image/gif" href="/media/favicon.gif" />
+		<link rel="apple-touch-icon" href="/media/apple-touch-icon.png" />
+
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="/media/css/reset.css" />
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="/media/charcoal/css/style.css" />
+	</head>
+	<body>
+		<div id="container">
+			<div class="page-container section-error">
+				<div class="page-banner">
+					<h1><a href="/">//myuni</a>/people/add/</h1>
+				</div>
+				<div class="page-body">
+					<div class="page-header">
+						<h2 class="page-title">
+							Add a Person
+						</h2>
+					</div>
+					<form action="/people/add/" method="POST">
+					    {% for field in form %}
+					        <div class="fieldWrapper">
+					            {{ field.errors }}
+					            {{ field.label_tag }}
+								{{ field }}
+					        </div>
+					    {% endfor %}
+						<div class="SubmitOptions">
+							<input type="submit" value="Add Person" />
+							or <a href="/people/" class="cancel">Cancel and go back</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		{% if debug %}
+		<div id="debug">
+			<div class="inner">
+				{{debug}}
+			</div><!-- /.inner -->
+		</div><!-- /#debug -->
+		{% endif %}
+	</body>
+</html>

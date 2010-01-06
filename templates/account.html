@@ -1,0 +1,50 @@
+{% extends "base.backend.html" %}
+{% block template %}{{block.super}} account{% endblock template %}
+{% block title %}{% if user.is_authenticated %}{{user}} - {% if user.course_taken %}{{user.course_taken.school}},{% endif %}{% else %}Account -{% endif %} University of Nottingham{% endblock title %}
+
+{% block content-inner %}
+
+					{% if user.is_authenticated %}
+
+					<div class="container">
+						<div class="header">
+							<h2><span>Account</span></h2>
+							<ul class="options">
+								<li class="nav-editprofile"><a href="/account/profile/">Edit profile</a></li>
+								<li class="nav-password"><a href="/account/password/">Change password</a></li>
+							</ul>
+						</div>
+						<div class="content">
+							{% if user.is_student %}
+								<p>You appear to be a <strong>student</strong>.</p>
+								{% if user.course_taken %}
+								<h3><span><a href="{{ user.course_taken.get_absolute_url }}">{{ user.course_taken }}: {{ user.course_taken.name }}</a></span></h3>
+								{% if user.modules_taken %}
+								<p>You're apparently taking the following modules.</p>
+								<ul>
+									{% for module in user.modules_taken.all %}
+									<li><a href="{{module.get_absolute_url}}">{{module.code}}: {{module.name}} ({{module.year}})</a></li>
+									{% endfor %}
+								</ul>
+								{% else %}
+								<div class="error">
+									<p>You're a student, and you're not currently assigned to a course. Whoops.</p>
+								</div>
+								{% endif %}
+								{% endif %}
+							{% else %}
+								<p>You appear to be a <strong>staff member</strong>.</p>
+							{% endif %}
+							
+							
+
+						</div>
+					</div>
+
+					{% else %}
+					<div class="container">
+						<div class="global-alert error"><p>Dude, you're not logged in. What're you trying to pull here?<br/>Go and <a href="/account/create/">sign up</a> or <a href="/account/login/">login</a> already.. sheesh.</p></div>
+					</div>
+					{% endif %}
+
+{% endblock content-inner %}

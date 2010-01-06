@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load filters %}
+
+{% block template %}moduleinstance-list{% endblock template %}
+
+{% block title %}Modules ({% if semester %}{{semester.name}}, {% endif %}{{year.reference}}) - {{block.super}}{% endblock title %}
+
+{% block site-messages %}
+	<div class="global-message">
+		<div class="inner">
+		{% if semester %}
+			<p><strong>Semester object detected</strong></p>
+			<p>This page should have the URL: <a href="/modules/{{year.reference}}/{{semester.slug}}/">/modules/{{year.reference}}/{{semester.slug}}/</a></p>
+		{% else %}
+			<p><strong>Semester object NOT found</strong></p>
+			<p>This page should have the URL: <a href="/modules/{{year.reference}}/">/modules/{{year.reference}}/</a></p>
+		{% endif %}
+			<p>Expecting the following variables:</p>
+			<ul>
+				<li>year = "2008-2009"</li>
+				<li>year.previous = "2007-2008" | false</li>
+				<li>year.next = "2009-2010" | false</li>
+				<li>semester = <strong>{{semester}}</strong></li>
+				<li>semester.name = "Spring Semester" = <strong>{{semester.name}}</strong></li>
+				<li>semester.name_short = "Spring" = <strong>{{semester.name_short}}</strong></li>
+				<li>semester.slug = "spring" = <strong>{{semester.slug}}</strong></li>
+				<li>semester.slug.capitalize = "Spring" = <strong>{{semester.slug.capitalize}}</strong></li>
+				<li>year.reference = "2008-2009" = <strong>{{year.reference}}</strong></li>
+			</ul>
+		</div>
+	</div>
+{% endblock site-messages %}
+
+{% block header-inner %}
+
+					<ul class="meta">
+						{% if semester %}
+							<li><a href="/modules/{{year.reference}}/">All</a></li>
+						{% else %}
+							<li>All</li>
+						{% endif %}
+					</ul>
+					
+					{% if semester %}
+					<h1>Modules for <span class="code">{{semester.name}}, <a href="/modules/{{year.reference}}/">{{year.reference}}</a></span></h1>
+					{% else %}
+					<h1>Modules for <span class="code">{{year.reference}}</span></h1>
+					{% endif %}
+					
+{% endblock header-inner %}
+
+{% block content-inner %}
+
+				{% if modules %}
+				<ul>
+				{% for module in modules %}
+				
+					{% ifchanged module.get_semester %}
+					<h3><span>{% if module.semester %}<a href="/modules/{{module.semester.year.reference}}/{{module.semester.slug}}/">{{module.semester.name}}</a>{% else %}<a href="/modules/{{module.year.reference}}/full-year/">Full-Year</a>{% endif %}</span></h3>
+					{% endifchanged %}
+					
+					<li><a class="module-code" href="{{module.get_absolute_url}}">{{module.code}}</a> {{module.name}}</li>
+					
+				{% endfor %}
+				</ul>
+				{% else %}
+				<div class="error">
+					<p>There are no modules available for {{year.reference}}.</p>
+				</div>
+				{% endif %}
+				
+{% endblock content-inner %}

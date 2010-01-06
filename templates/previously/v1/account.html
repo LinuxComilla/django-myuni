@@ -1,0 +1,25 @@
+{% extends "myuni/base.backend.html" %}
+
+{% block title %}{% if user.is_authenticated %}{{user}} - {% if user.course_taken %}{{user.course_taken.school}},{% endif %}{% else %}Account -{% endif %} University of Nottingham{% endblock title %}
+
+{% block content-inner %}
+
+					{% if user.is_authenticated %}
+
+					<div class="container">
+					
+						<h3><span>Account</span></h3>
+
+						{% for module in user.course.modules.all %}
+						<h3><a href="/{{module}}/">{{module}}: {{module.name}}</a></h3>
+						{% endfor %}
+
+					</div>
+
+					{% else %}
+					<div class="container">
+						<div class="global-alert error"><p>Dude, you're not logged in. What're you trying to pull here?<br/>Go and <a href="/account/create/">sign up</a> or <a href="/account/login/">login</a> already.. sheesh.</p></div>
+					</div>
+					{% endif %}
+
+{% endblock content-inner %}

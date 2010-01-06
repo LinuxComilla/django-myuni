@@ -1,0 +1,118 @@
+{% extends "myuni/base.html" %}
+{% block template %}person{% endblock template %}
+
+{% block title %}{{person.title}} {{person.first_name}} {{person.initial}} {{person.last_name}} ({{person.username}}) - School of Computer Science, University of Nottingham{% endblock title %}
+
+{% block header-inner %}
+					<h1 class="name">{{person.title}} {{person.first_name}} {{person.initial}} {{person.last_name}}</h1>
+					<h2 class="role">{{person.role_description}}</h2>
+{% endblock header-inner %}
+
+{% block content-inner %}
+					
+					<div class="secondary">
+						{% block content-secondary %}
+
+						<div class="module">
+							<div class="inner">
+
+							<div class="image" style="background:url(/media/people/{{person.username}}/100px.gif) no-repeat 50% 50%;">
+								<!-- <img src="/media/people/{{person.username}}/100px.gif" width="21px" height="213px" /> -->
+							</div>
+
+							<div class="contact-details">
+								<span class="email"><a href="mailto:{{person.username}}@cs.nott.ac.uk">School Email</a></span>
+								<span class="url"><a href="http://cs.nott.ac.uk/~{{person.username}}/">Personal Site</a></span>
+								<span class="phone">{{person.phone}}</span>
+							</div>
+
+							<ul class="navigation">
+								<li class="this"><a href="/{{person.username}}/">Overview</a></li>
+								<li><a href="/{{person.username}}/activites/">Activities</a></li>
+								<li><a href="/{{person.username}}/awards/">Awards</a></li>
+								<li><a href="/{{person.username}}/personal/">Personal</a></li>
+								<li><a href="/{{person.username}}/projects/">Projects</a></li>
+								<li><a href="/{{person.username}}/publications/">Publications</a></li>
+								<li><a href="/{{person.username}}/research/">Research</a></li>
+								<li><a href="/{{person.username}}/students/">Students</a></li>
+								<li><a href="/{{person.username}}/supervision/">Supervision</a></li>
+								<li><a href="/{{person.username}}/teaching/">Teaching</a></li>
+							</ul>
+
+							</div><!-- /.inner -->
+						</div><!-- /.module -->
+
+						{% endblock content-secondary %}
+					</div><!-- /.secondary -->
+
+					<div class="primary">
+						{% block content-primary %}
+						
+						<h3><span>Overview</span></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum interdum molestie. Aenean eros dolor, rhoncus sit amet cursus eu, convallis a ipsum. Donec risus magna, sagittis at elementum quis, faucibus facilisis lectus. Nulla ornare est sit amet ante feugiat sagittis. Duis tempus tempus porttitor. Suspendisse id ante dui. Sed posuere odio at arcu ullamcorper tempor. Aliquam erat volutpat. Nulla pulvinar libero eu libero vestibulum gravida nec sit amet enim. Praesent eu felis urna, sed tincidunt nulla. Maecenas nec metus non mi facilisis pretium a non diam. Aenean aliquet pharetra erat at auctor. Duis mi velit, faucibus vitae pulvinar eu, euismod quis lorem. Morbi sollicitudin lectus eget tellus euismod quis tincidunt risus aliquam. Vivamus vestibulum, augue ac sodales lobortis, lorem massa viverra ligula, nec facilisis felis nulla ac tellus. Quisque egestas ultrices dui vitae vestibulum. Proin quis ligula nec lectus eleifend hendrerit.</p>
+						<h4>Subtitle</h4>
+						<p>Ut ullamcorper tristique risus, at condimentum neque facilisis vitae. Aliquam dignissim lobortis nisi eget sollicitudin. Suspendisse porttitor, ligula nec varius mattis, erat eros suscipit ante, at bibendum ipsum purus a eros. Nulla in nunc sit amet mi facilisis luctus sagittis et magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam magna sapien, fermentum vitae sollicitudin vitae, vestibulum id lorem. Cras sagittis, sem vitae iaculis sodales, nulla ligula mattis nisl, et pulvinar tortor nibh consectetur ante. Fusce venenatis metus et nibh vehicula congue sed eget leo. Aenean interdum nisi tristique metus scelerisque non eleifend nisl luctus. Nullam nulla nisi, hendrerit sit amet varius a, accumsan pulvinar lectus. In ornare pulvinar nunc, ut feugiat metus vulputate non. Praesent tortor diam, ultricies ut tristique id, pulvinar nec ante. Aenean placerat cursus elit a volutpat. Nunc ullamcorper, dui vitae accumsan luctus, neque augue elementum dui, sit amet aliquam enim mauris at ipsum.</p>
+
+						{% endblock content-primary %}
+					</div><!-- /.primary -->
+					
+					<hr class="clear"/>
+
+{% endblock content-inner %}
+
+
+
+{% block debug %}
+
+	{{person.get_full_name}}
+	{{person.username}}
+	{{person.title}} {{person.first_name}} {{person.initial}} {{person.last_name}}
+	{{person.gender}}
+	{{person.email}}
+	{{person.phone}}
+	{{person.roles}}
+	{{person.role_description}}
+	{{person.sid}}
+	<img src="/media/people/{{person.username}}/80px.gif" width="80px" height="80px" />
+
+	<div class="contact-details">
+		<span class="email"><a href="mailto:{{person.username}}@cs.nott.ac.uk"></a></span>
+		<span class="url"><a href="http://cs.nott.ac.uk/~{{person.username}}/"></a></span>
+		{% if person.phone and not person.location.room_number %}
+		<span class="phone">{{person.phone}}</span>
+		{% else %}
+		<span class="room">{% if person.location.room_number %}<small>School of Computer Science</small>, <strong>{{ person.location.room_number }}</strong>{% else %}<small>Unspecified</small>{% endif %}</span>
+		{% endif %}
+	</div>
+
+	{% include "myuni/person.snippet.role-description.html" %}
+
+	{% if person.modules_lectured.all %}
+		<h3><span>Modules Lectured</span></h3>
+		{% for module in person.modules_lectured.all %}
+		{% ifchanged %}<h4>{{module.year}}</h4>{% endifchanged %}
+		<h3><a href="/{{module.module.code}}/">{{module.module.code}}: {{module.module.name}}</a></h3>
+		{% endfor %}
+	{% endif %}
+
+	{% if person.modules_convened.all %}
+		<h3><span>Modules Convened</span></h3>
+		{% for module in person.modules_convened.all %}
+		{% ifchanged %}<h4>{{module.year}}</h4>{% endifchanged %}
+		<h3><a href="/{{module.module.code}}/">{{module.module.code}}: {{module.module.name}}</a></h3>
+		{% endfor %}
+	{% endif %}
+
+	<ul class="navigation-list">
+		<li><a href="/{{person.username}}/" class="this">Overview</a></li>
+		<li><a href="/{{person.username}}/activites/">Activities</a></li>
+		<li><a href="/{{person.username}}/awards/">Awards</a></li>
+		<li><a href="/{{person.username}}/personal/">Personal</a></li>
+		<li><a href="/{{person.username}}/projects/">Projects</a></li>
+		<li><a href="/{{person.username}}/publications/">Publications</a></li>
+		<li><a href="/{{person.username}}/research/">Research</a></li>
+		<li><a href="/{{person.username}}/supervision/">Supervision</a></li>
+		<li><a href="/{{person.username}}/teaching/">Teaching</a></li>
+	</ul>
+
+{% endblock debug %}

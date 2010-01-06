@@ -1,0 +1,26 @@
+
+			<div id="global-navigation">
+				<div class="navigation">
+					<div class="account-links">
+						<a href="/admin/" class="admin" title="View Admin Panel">Admin</a>
+						{% if user.is_authenticated %}
+						<a href="/account/" class="account-settings" title="Edit your account">{{user}}</a>
+						<a href="/account/logout/" class="account-logout" title="Logout">Logout</a>
+						{% else %}
+						<a href="/account/create/" class="account-create" title="Create an account">Sign up</a>
+						<a href="/login/" class="account-login" title="Login to your account">Login</a>
+						{% endif %}
+					</div>
+					<span id="department-branding">
+						<a href="http://cs.nott.ac.uk/">School of Computer Science</a>
+					</span>
+					<span class="extra-symbol">
+						&equiv;
+					</span>
+					{% spaceless %}<ul>
+						<li class="{% if course or courses %}this{% else %}not-this{% endif %}"><a href="/courses/" class="courses">Courses</a></li>
+						<li class="{% if module or modules %}this{% else %}not-this{% endif %}"><a href="/modules/" class="modules">Modules</a></li>
+						<li class="{% if person or people %}this{% else %}not-this{% endif %}"><a href="/people/" class="people">People</a></li>
+					</ul>{% endspaceless %}
+				</div>
+			</div>

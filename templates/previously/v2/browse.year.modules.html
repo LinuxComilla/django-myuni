@@ -1,0 +1,53 @@
+{% extends "myuni/browse.html" %}
+{% load filters %}
+
+{% block title %}Modules ({{year}}) - {{block.super}}{% endblock title %}
+{% block site-messages %}
+	<div class="global-message">
+		<div class="inner">
+			<p>This page should have the URL: <strong>/(year)/modules/</strong></p>
+			<p>Expecting the following variables:</p>
+			<ul>
+				<li>year = "2008-2009"</li>
+				<li>year.previous = "2007-2008" | false</li>
+				<li>year.next = "2009-2010" | false</li>
+			</ul>
+		</div>
+	</div>
+{% endblock site-messages %}
+
+{% block header-inner %}
+
+				{% if year.previous or year.next %}{% spaceless %}
+				<ul class="nextprev">
+					{% if year.previous %}
+					<li class="prev"><a href="/modules/{{year.previous.reference}}/">&larr; Previous Year</a></li>
+					{% endif %}
+					{% if year.next %}
+					<li class="next"><a href="/modules/{{year.next.reference}}/">Next Year &rarr;</a></li>
+					{% endif %}
+				</ul>
+				{% endspaceless %}{% endif %}
+				
+				<h1>Modules for <span class="code">{{year.reference}}</span></h1>
+{% endblock header-inner %}
+
+{% block content-inner %}
+				{% if modules %}
+				<ul>
+				{% for module in modules %}
+				
+					{% ifchanged module.get_semester %}
+					<h3><span>{% if module.semester %}<a href="/modules/{{module.year.reference}}/{{module.semester.slug}}/">{{module.semester.name}}</a>{% else %}<a href="/modules/{{module.year.reference}}/full-year/">Full-Year</a>{% endif %}</span></h3>
+					{% endifchanged %}
+					
+					<li><a class="module-code" href="{{module.get_absolute_url}}">{{module.code}}</a> {{module.name}}</li>
+					
+				{% endfor %}
+				</ul>
+				{% else %}
+				<div class="error">
+					<p>There are no modules available for 2008-2009.</p>
+				</div>
+				{% endif %}
+{% endblock content-inner %}

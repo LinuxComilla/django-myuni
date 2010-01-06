@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{block.super}}{% endblock title %}
+{% block template %}browse{% endblock template %}
+
+{% block site-messages %}
+	<div class="global-message">
+		<div class="inner">
+			<p>This page should have the URL: <a href="/my/modules/">/my/modules/</a></p>
+			<ul>
+				<li>It may possibly show a list of all the modules taken by the current user, or it may get removed.</li>
+			</ul>
+		</div>
+	</div>
+{% endblock site-messages %}

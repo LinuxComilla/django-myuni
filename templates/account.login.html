@@ -1,0 +1,36 @@
+{% extends "myuni/base.backend.html" %}
+{% block title %}Login - {{block.super}}{% endblock title %}
+{% block template %}{{block.super}} login{% endblock template %}
+
+{% block content-inner %}
+
+					<div class="container">
+						<div class="header">
+							<h2>Login</h2>
+						</div>
+						<form class="login" method="post">
+						{% if form_error %}
+							<div class="error">
+								<p>{{ form_error }}</p>
+							</div>
+						{% endif %}
+							<div class="content">
+							{% for field in form %}
+								<div class="fieldWrapper inline">
+									{{ field.errors }}
+									{{ field.label_tag }}
+									{{ field }}
+								</div>
+							{% endfor %}
+							</div>
+							<div class="submitOptions">
+								<input type="submit" value="Login" />
+								or <a href="/" class="cancel">Cancel and go back</a>
+							</div>
+						</form>
+					</div>
+					<script type="text/javascript">
+						document.getElementById('id_username').focus()
+					</script>
+
+{% endblock content-inner %}

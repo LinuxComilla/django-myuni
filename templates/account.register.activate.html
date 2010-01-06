@@ -1,0 +1,22 @@
+{% extends "base.backend.html" %}
+{% block title %}Activate Account - {{block.super}}{% endblock title %}
+{% block template %}{{block.super}} register{% endblock template %}
+
+{% block content-inner %}
+
+					<div class="container">
+						<div class="header">
+							<h2>Activate your account</h2>
+						</div>
+						<form class="login" method="post">
+							<div class="inner">
+								<p>Let's activate your account..</p>
+							</div>
+							<div class="submitOptions">
+								<input type="submit" value="Activate" />
+								or <a href="/" class="cancel">Cancel and go back</a>
+							</div>
+						</form>
+					</div>
+
+{% endblock content-inner %}

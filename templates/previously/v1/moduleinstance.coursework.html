@@ -1,0 +1,26 @@
+{% extends "myuni/module.html" %}
+
+{% block contents-inner %}
+
+					<h3><strong>Coursework</strong></h3>
+
+					{% if module.coursework.all %}
+					
+					<div class="content-module contains-coursework">
+						{% for coursework in module.coursework.all %}
+						<div class="coursework-item">
+							<a href="/{{module.code}}/coursework/{{coursework.id}}/"><strong>{{coursework.title}}</strong></a> <small>{{coursework.date_happened}}</small>
+							{% if coursework.description %}<p class="description">{{coursework.description}}</p>{% endif %}
+						</div>
+						{% endfor %}
+					</div>
+					
+					{% else %}
+					
+					<div class="error">
+						<p>There are apparently no courseworks currently available for this module.</p>
+					</div>
+					
+					{% endif %}
+
+{% endblock contents-inner %}

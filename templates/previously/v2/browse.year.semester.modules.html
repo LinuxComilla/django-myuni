@@ -1,0 +1,42 @@
+{% extends "myuni/browse.html" %}
+{% load filters %}
+
+{% block title %}Modules ({{semester.name}}, {{year.reference}}) - {{block.super}}{% endblock title %}
+
+{% block site-messages %}
+	<div class="global-message">
+		<div class="inner">
+			<p>This page should have the URL: <strong>/(year)/(semester)/modules/</strong></p>
+			<p>Expecting the following variables:</p>
+			<ul>
+				<li>semester = "Spring Semester for 2008-2009" = <strong>{{semester}}</strong></li>
+				<li>semester.name = "Spring Semester" = <strong>{{semester.name}}</strong></li>
+				<li>semester.name_short = "Spring" = <strong>{{semester.name_short}}</strong></li>
+				<li>semester.slug = "spring" = <strong>{{semester.slug}}</strong></li>
+				<li>semester.slug.capitalize = "Spring" = <strong>{{semester.slug.capitalize}}</strong></li>
+				<li>year.reference = "2008-2009" = <strong>{{year.reference}}</strong></li>
+			</ul>
+		</div>
+	</div>
+{% endblock site-messages %}
+
+{% block header-inner %}
+				
+				<h1>Modules for <span class="code">{{semester.slug.capitalize}}, <a href="/modules/{{year.reference}}/">{{year.reference}}</a></span></h1>
+{% endblock header-inner %}
+
+{% block content-inner %}
+				{% if modules %}
+				<ul>
+				{% for module in modules %}
+					
+					<li><a class="module-code" href="{{module.get_absolute_url}}">{{module.code}}</a> {{module.name}}</li>
+					
+				{% endfor %}
+				</ul>
+				{% else %}
+				<div class="error">
+					<p>There are no modules available for 2008-2009.</p>
+				</div>
+				{% endif %}
+{% endblock content-inner %}

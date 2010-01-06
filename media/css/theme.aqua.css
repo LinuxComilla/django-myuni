@@ -1,0 +1,89 @@
+
+	body {
+		background:#166B67;}
+
+	a, a:visited, a:active, a:focus {
+		color:#00d;}
+
+	/*	#################
+		Global Navigation
+	*/
+
+	#global-navigation {
+		background:#fff;}
+
+	/*	#################
+		Header
+	*/
+
+	#header h1 {
+		color:#fff;
+		text-shadow: 1px 1px 2px #2E2E2E;}
+
+	#header h2 {
+		color:#2E2E2E;}
+
+	#header .floating-head img {
+		border-color:#222;}
+	#header .floating-head a {
+		color: #bbb;}
+	#header .floating-head a:hover {
+		color:#fff;}
+
+	#header .contact-details {
+		color:#888;}
+	#header .contact-details strong {
+		color:#fff;}
+
+	/*	#################
+		Content Container
+	*/
+
+	#content {
+		border:0px;
+		border-color:#266640;
+		background:#fff;}
+
+	#content-container {
+		border-color:#20504E;
+		background:#20504E;}
+
+	/*	#################
+		Content Section Navigation
+	*/
+
+	#section-navigation a {
+		color:#66B5B2;
+		background:#20504E;
+  		border-color:#20504E;
+		border-bottom-color:#20504E;}
+
+	#section-navigation a:hover {
+		color:#fff;
+		background:#166B68;
+		border-color:#166B68;}
+
+	#section-navigation a.this {
+		color:#000;
+		background:#fff;
+		border-color:#fff;}
+
+	/*	#################
+		Person
+	*/
+
+	.people-sidebar .person img {
+		border-color:#eee;}
+	.people-sidebar .person a span.url {
+		color:#666;}
+	.people-sidebar .person a:hover span.url {
+		color:#333;}
+	
+	.meta {
+		color:#1FBCB6;}
+	.meta a {
+		color:#2F947B;}
+	.meta a:hover {
+		color:#ACD998;}
+
+

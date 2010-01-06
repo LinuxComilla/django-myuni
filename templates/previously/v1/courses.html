@@ -1,0 +1,46 @@
+{% extends "myuni/base.html" %}
+{% block template %}courses{% endblock template %}
+
+{% block title %}Courses - School of Computer Science, University of Nottingham{% endblock title %}
+
+{% block content-inner %}
+
+					<h2>Courses for 2008-2009</h2>
+
+					<h3><span>Undergraduate</span></h3>
+					<ul>
+						<li><a class="course-code" href="/2008-2009/G400/">G400</a> Computer Science BSc Hons</li>
+						<li><a class="course-code" href="/2008-2009/G4G7/">G4G7</a> Computer Science with Artificial Intelligence BSc Hons</li>
+						<li><a class="course-code" href="/2008-2009/G425/">G425</a> Computing and Information Systems BSc Hons</li>
+						<li><a class="course-code" href="/2008-2009/G601/">G601</a> Software Systems BSc Hons</li>
+						<li><a class="course-code" href="/2008-2009/GN42/">GN42</a> Computer Science and Management Studies BSc Jt Hons</li>
+						<li><a class="course-code" href="/2008-2009/GG14/">GG14</a> Mathematics and Computer Science MSci Hons</li>
+						<li><a class="course-code" href="/2008-2009/GG41/">GG41</a> Mathematics and Computer Science BSc Jt Hons</li>
+						<li><a class="course-code" href="/2008-2009/CFG0/">CFG0</a> Science with Foundation Year MSci Hons</li>
+					</ul>
+
+
+					<h3><span>Postgraduate</span></h3>
+					<ul>
+						<li><a class="course-code" href="/2008-2009/G403/">G403</a> MSc in Advanced Computing Science</li>
+						<li><a class="course-code" href="/2008-2009/G402/">G402</a> MSc in Computer Science and Entrepreneurship</li>
+						<li><a class="course-code" href="/2008-2009/G507/">G507</a> MSc in Information Technology</li>
+						<li><a class="course-code" href="/2008-2009/G565/">G565</a> MSc in the Management of Information Technology</li>
+						<li><a class="course-code" href="/2008-2009/GH57/">GH57</a> MSc in Interactive Systems Design</li>
+						<li><a class="course-code" href="/2008-2009/G900/">G900</a> MSc in Scientific Computation</li>
+					</ul>
+
+					<h3><span>Currently Django has..</span></h3>
+					{% if courses %}
+					<ul>
+					{% for course in courses %}
+						<li><a class="course-code" href="{{course.get_url}}">{{course}}</a> {{course.name}}</li>
+					{% endfor %}
+					</ul>
+					{% else %}
+					<div class="error">
+						<p>There are no courses available for 2008-2009.</p>
+					</div>
+					{% endif %}
+					
+{% endblock content-inner %}

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+
+		<title>{% block title %}myUni - School of Computer Science{% endblock title %}</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="en" />
+		<meta name="Author" content="University of Nottingham" />
+		<meta name="Copyright" content="Information copyright respective authors, Design & styles copyright (c) 2008 Ben Jenkinson" />
+		<meta name="Description" content="" />
+		<meta name="Keywords" content="University, Nottingham, University of Nottingham, modules, lectures, coursework, lecture notes, exams" />
+		<meta name="Robots" content="all" />
+		<meta http-equiv="imagetoolbar" content="false" />
+		<meta name="MSSmartTagsPreventParsing" content="true" />
+
+		<link rel="icon" type="image/gif" href="/media/favicon.gif" />
+		<link rel="apple-touch-icon" href="/media/apple-touch-icon.png" />
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="/media/css/reset.css" />
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="/media/css/global.css" />
+
+	</head>
+	<body class="{% block template %}base{% endblock template %}">
+
+		{% block site-messages %}{% endblock site-messages %}
+
+		<div id="site-container">
+			{% block site-container %}
+
+			<div id="navigation">
+				{% block navigation %}
+
+				<div class="inner">
+					{% block navigation-inner %}
+
+					<ul class="secondary">{% spaceless %}
+						{% block navigation-secondary %}
+
+						{% if user.is_authenticated %}
+						{% if user.is_staff %}
+						<li class="nav-admin">
+							<a href="/admin/" title="View Admin Panel">Admin</a>
+						</li>
+						{% endif %}
+						<li class="nav-account">
+							<a href="/account/" title="Edit your Account">{{user}}</a>
+						</li>
+						<li class="nav-logout">
+							<a href="/account/logout/" title="Logout">Logout</a>
+						</li>
+						{% else %}
+						<li class="nav-signup">
+							<a href="/account/create/" title="Create an account">Sign up</a>
+						</li>
+						<li class="nav-login">
+							<a href="/account/login/" title="Login to your account">Login</a>
+						</li>
+						{% endif %}
+
+						{% endblock navigation-secondary %}
+					{% endspaceless %}</ul>
+
+					<span class="branding">
+						{% block branding %}School of Computer Science{% endblock branding %}
+					</span>
+
+					<ul class="primary">{% spaceless %}
+						{% block navigation-primary %}
+
+						{% if user.is_authenticated %}
+						<li class="nav-courses">
+							<a href="/my/courses/">Courses</a>
+						</li>
+						<li class="nav-modules">
+							<a href="/my/modules/">Modules</a>
+						</li>
+						<li class="nav-people">
+							<a href="/my/people/">People</a>
+						</li>
+						<li class="nav-calendar">
+							<a href="/my/calendar/">Calendar</a>
+						</li>
+						{% else %}
+						<li class="nav-courses">
+							<a href="/courses/">Courses</a>
+						</li>
+						<li class="nav-modules">
+							<a href="/modules/">Modules</a>
+						</li>
+						<li class="nav-people">
+							<a href="/people/">People</a>
+						</li>
+						{% endif %}
+
+						{% endblock navigation-primary %}
+					{% endspaceless %}</ul>
+
+					{% endblock navigation-inner %}
+				</div><!-- /.inner -->
+
+				{% endblock navigation %}
+			</div><!-- /#navigation -->
+
+			<div id="header">
+				{% block header %}
+
+				<div class="inner">
+					{% block header-inner %}
+
+					{% endblock header-inner %}
+				</div><!-- /.inner -->
+
+				{% endblock header %}
+			</div><!-- /#header -->
+
+			<div id="content">
+				{% block content %}
+
+				<div class="inner">
+					{% block content-inner %}
+
+					<div class="error">
+						<p>Whoops, this page doesn't seem to have anything on it.</p>
+					</div>
+
+					{% endblock content-inner %}
+				</div><!-- /.inner -->
+
+				{% endblock content %}
+			</div><!-- /#content -->
+
+			<div id="footer">
+				{% block footer %}
+
+				<div class="inner">
+					{% block footer-inner %}
+
+					<div class="shorturl">
+						{% block shorturl %}{% endblock shorturl %}
+					</div>
+
+					{% endblock footer-inner %}
+				</div><!-- /.inner -->
+
+				{% endblock footer %}
+			</div><!-- /#footer -->
+
+			{% if debug %}
+			<div id="debug">
+				<div class="inner">
+					{{debug}}
+				</div><!-- /.inner -->
+			</div><!-- /#debug -->
+			{% endif %}
+
+			{% endblock site-container %}
+		</div><!-- /#site-container -->
+
+	</body>
+
+</html>

@@ -1,0 +1,314 @@
+	/*	######################## 
+		This is Version 2 of Charcoal
+		http://soul-scape.com
+		
+		Created by Ben Jenkinson
+		http://benjenkinson.com
+		######################## 
+	*/
+
+	body {
+	    background: #222;
+	    font: 70% "Helvetica Neue", Helvetica, Arial, sans-serif;
+	    color: #111;}
+	strong{
+	    font-weight: bold;}
+	em {
+		font-style: italic;}
+	small {
+		font-size:80%;
+		color:#888;}
+	a:link,
+	a:visited{
+	    color: #ee3a44;
+	    text-decoration: none;}
+	a:hover,
+	a:active{
+	    text-decoration: underline;}
+
+	acronym {
+		border-bottom:1px dotted #888;}
+	acronym:hover {
+		cursor:help;}
+
+	.clear {
+		clear: both;
+		display: block;
+		overflow: hidden;
+		width: 0;
+		height: 0;}
+
+	#container{
+	    float: left;
+	    padding: 50px 0px 100px 50px;
+	    padding-bottom:100px;}
+
+	.page-container {
+	    width: 540px;
+		background:#fff;
+		border-right:5px solid #000;
+		border-bottom:5px solid #000;}
+		.page-banner {
+			padding:12px 15px 10px 20px;
+			background:#ee3a44;
+			color:#fff;
+			overflow:hidden;}
+			.page-banner a {
+				color:#fff;}
+		.section-error .page-banner {
+			background:#000 url(../img/banner-error.png);
+			padding-bottom:12px;}
+		.section-error .page-banner h1 {
+			background:#000;
+			padding:4px 5px;
+			margin:-4px -5px;}
+		.section-apps .page-banner {
+			background:#00C0FF;}
+
+			h1{
+				display:inline;
+				font-size: 1.3em;
+				font-weight: normal;}
+			h1 a {
+				font-weight:bold;
+				margin-right:2px;}
+
+		.page-body {
+			background:url(../img/header-bg.gif) repeat-x;
+			padding-top:16px;}
+
+			.page-header {
+				padding:0px 20px 12px 20px}
+
+				h2.page-title {
+					padding:0px;
+					margin:0px;
+					margin-top:-4px;
+					color:#111;
+					font-size: 2.6em;
+					font-weight: bold;}
+
+				h2.page-title a {
+					color:#111 !important;
+					text-decoration:none !important;}
+
+				.page-meta span {
+					color:#888;}
+
+			p {
+				font-size: 1.2em;
+				line-height: 1.5em;
+				cfont-size: 13px;
+				cline-height: 20px;
+				padding: 0px 20px 16px 20px;}
+			
+			c.page-body,
+			c.page-actions,
+			c.page-footer {
+				font-size: 13px;
+				line-height: 20px;}
+				
+
+			.page-body a:link,
+			.page-body a:visited {
+				color: #ee3a44;
+				text-decoration:underline;}
+			.page-body a:hover,
+			.page-body a:active {
+				color: #ee3a44;}
+
+			.page-body code {
+				background: #e4e4e4;
+				padding:0px 1px;
+				color: #222;}
+
+			.page-body pre,
+			.page-body blockquote {
+				margin: 0 0px 16px 0px;
+				padding: 6px 20px 6px 20px;
+				background: #444;
+				font-size: 1.2em;
+				xfont-style: italic;
+				line-height: 1.5em;
+				color: #fff;
+				font-family:georgia;
+				overflow:auto;}
+			.page-footer pre {
+				margin:0px;}
+
+			.page-body blockquote {
+				background: #ccc;
+				color: #444;}
+			.page-body blockquote cite {
+				display:block;
+				text-align:right;
+				color:#555;
+				font-family:georgia;
+				font-size:0.8em;}
+
+			.page-body ul {
+				font-size: 1.2em;
+				line-height: 1.5em;
+				padding: 0px 20px 16px 43px;}
+				.page-body ul li {
+					list-style-type:disc;}
+			.page-body ul.style-nobullet {
+				padding-left:23px;}
+				.page-body ul.style-nobullet li {
+					list-style-type:none;
+					margin-bottom:3px;}
+
+			.page-body .note {
+				border:1px solid #EFD98D;
+				margin:0px 10px 16px 10px;
+				padding:0px;
+				color:#834300;
+				xxbackground:#FEF9E9 url(../img/error.png) no-repeat 8px 7px;
+				padding-left:22px;}
+
+				.page-body .note p {
+					padding:5px 9px 6px 9px;}
+
+			.page-body .note.warning {
+				border:1px solid #FFBEC2;
+				color:#DC2A34;
+				xxbackground:#FFE6E7 url(../img/exclamation.png) no-repeat 8px 7px;}
+
+			.page-footer {
+				color:#333;
+				padding-top:16px;
+				border-top:1px solid #d8d8d8;
+				background:#f4f4f4;
+				clear:both;}
+
+			.columns-two {}
+				.columns-two .column {
+					float:left;
+					width:270px;}	
+
+			.page-actions {
+				padding-top:16px;
+				background:#E2F9E3;
+				border-top:1px solid #99CC99;
+				border-bottom:1px solid #99CC99;
+				margin-bottom:16px;
+				xposition: relative; /* peekaboo bug fix for IE6 */
+				xmin-width: 0; /* peekaboo bug fix for IE7 */}
+			.page-footer.page-actions {
+				margin-bottom:0px;
+				border-bottom:0px;}
+
+			.page-actions a,
+			.page-actions a:link,
+			.page-actions a:visited {
+				color:#375137;
+				text-decoration:none;
+				margin-right:3px;
+				font-weight:bold;}
+			.page-actions a:hover {
+				color:#182A18;
+				text-decoration:underline;}
+			.page-actions a strong {
+				font-weight:normal;
+				color:#468B46;
+				text-decoration:none !important;}
+
+				
+			.page-actions span {
+				margin-right:10px;
+				padding-left:20px;}
+	
+	/*	#################
+		Forms
+	*/
+	
+	form {
+		font-size: 1.2em;
+		line-height: 1.5em;
+		margin:0px 20px 20px 20px;
+		padding-top:15px;
+		border:1px solid #c0c0c0;
+		background:#f2f2f2;}
+	form .SubmitOptions {
+		border-top:1px solid #c0c0c0;
+		background:#ddd;
+		margin-top:15px;
+		padding:10px 15px;}
+	form .SubmitOptions a {
+		color:#d00;
+		padding:1px 2px;}
+	form .SubmitOptions a:hover {
+		color:#fff;
+		background:#c00;
+		text-decoration:none;}
+	form .fieldWrapper label {
+		width:100px;
+		display:inline-block;}
+	form .fieldWrapper {
+		margin:6px 20px;}
+
+
+	
+
+			.archive-by-date a {
+				text-decoration:none !important;}
+			.archive-by-date a:hover {
+				text-decoration:underline !important;}
+			
+			.archive-by-date {
+				padding: 0px 20px 16px 20px;
+				margin-top:-16px;}
+				
+			.archive-by-date h4 {
+				display:block;
+				font-size: 1.2em;
+				line-height: 1.5em;
+				text-transform:uppercase;
+				font-weight:bold;
+				color:#555;
+				margin-top:16px;}
+				
+				
+			.archive-by-date .item {
+				overflow: hidden;
+				color: #575449;
+				list-style: none;
+				border-top: 1px dotted #bbb;
+				padding: 0.5em 5px;
+				margin: 0;}
+
+			.archive-by-date .item li {
+				display: inline;}
+
+			.archive-by-date .item li sup {
+				line-height: 0em !important;
+				position:relative;
+				top:-6px;
+				font-size:0.7em;}
+
+			.archive-by-date .item li.date {
+				float: left;}
+
+			.archive-by-date .item li.name {
+				margin-left: 25px;
+				float: left;}
+
+			.archive-by-date .item li.version {
+				float: right;}
+
+
+
+	.external {
+		margin:20px 0px;
+		color:#fff;
+		padding: 0px 20px;
+		font-size:14px;
+		line-height:18px;
+		font-family:courier, monospace;}
+
+	.external p {
+		padding:0px 0px 16px 0px;
+		font-size:1em;}
+	.external ol, .external ul {
+		margin-bottom:16px;}
+			

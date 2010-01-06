@@ -1,0 +1,29 @@
+{% extends "base.backend.html" %}
+{% block title %}Colophon - {{block.super}}{% endblock title %}
+{% block template %}{{block.super}} colophon{% endblock template %}
+
+{% block content-inner %}
+
+					<div class="container">
+						<div class="header">
+							<h2>Colophon <small>version {{version}}</small></h2>
+						</div>
+						<div class="content">
+							<p>This site was made to make it easier to find the lecture notes and coursework files for our modules, and ultimately to be able to keep track of it all.</p>
+							<h3><span>URLs</span></h3>
+							<p>We decided that the current system needed tidying up and we really wanted <a href="/modules/2008-2009/autumn/">nice</a> <a href="/modules/2008-2009/spring/G51FUN/">hackable</a> <a href="/people/nza/">URLs</a>; no more of these "What's the lecturer's middle initial?" problems when you just want a module.</p>
+							<p>To make this even easier, if you try a 'logical' url then we should be able to use it to guess what you want. There's also a short-url system to provide shortcuts to specific modules or lectures.</p>
+							<h3><span>People</span></h3>
+							<p>We are <a href="/bxj08u/">Ben</a> (Designer), <a href="/rxm08u/">Rob</a> (Django), <a href="/rjg08u/">Rob</a> (Django &amp; Server Admin) &amp; <a href="/people/">Marcus</a> (Javascript). All of us first-year undergraduates in the Computer Science Dept.</p>
+							<h3><span>Technology</span></h3>
+							<p>The whole thing is built in <a href="http://www.djangoproject.com/">Django</a> (the web framework for ponies with magical powers) and hosted on <a href="http://www.ubuntu.com/">Ubuntu</a> Server 9.04.</p>
+							<p><a href="http://djangopony.com/" class="ponybadge" title="Magic! Ponies! Django! Whee!"><img src="http://media.djangopony.com/img/small/badge.png" width="210" height="65" alt="ponybadge"></a></p>
+							<p>We use semantic XHTML &amp; CSS that should even be compatible with IE, though you should all know better than to be using it..</p>
+							<h3><span>Acknowledgements</span></h3>
+							<p>Icons used are from the <a href="http://picol.org/">PICOL</a> pictorial communication language, used under their <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons</a> license.</p>
+							<p>Finally, we'd like to thank the university <a href="http://modulecatalogue.nottingham.ac.uk/nottingham/asp/main_search.asp">module catalogue</a> for inspiring us with such <a href="http://studentcoursestructures.nottingham.ac.uk/asp/view_structure.asp?crs_id=000319&year_id=000109&year_descr=09/10&asp_type_descr=3+year+UG&school=Computer+Science&title=Computer+Science&ucas_course=G400&qual=BSc+Hons">amazing URLs</a>, along with some particularly fine examples of staff personal sites.</p>
+							</ul>
+						</div>
+					</div>
+
+{% endblock content-inner %}
