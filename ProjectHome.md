@@ -1,0 +1,1 @@
+A university information management system, written using the Django web-framework.
